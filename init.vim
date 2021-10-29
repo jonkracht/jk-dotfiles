@@ -30,13 +30,13 @@ syntax enable
 call plug#begin()
 Plug 'preservim/nerdtree'
 Plug 'itchyny/lightline.vim'
-
 Plug 'dracula/vim'
 Plug 'morhetz/gruvbox'
 Plug 'Rigellute/rigel'
 Plug 'arcticicestudio/nord-vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'doums/darcula'
+Plug 'ap/vim-css-color'
 
 " Initialize plugin system
 call plug#end()

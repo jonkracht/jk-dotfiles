@@ -824,3 +824,4 @@ awful.spawn.with_shell("pkill compton; compton --config ~/.config/compton/compto
 --awful.spawn.with_shell("pkill compton; compton")
 
 awful.util.spawn("nm-applet")
+awful.util.spawn("blueman-applet")
