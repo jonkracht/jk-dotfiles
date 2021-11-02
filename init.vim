@@ -64,8 +64,8 @@ highlight CursorColumn ctermbg=Yellow cterm=bold guibg=#2b2b2b
 
 map <C-o> :NERDTreeToggle<CR>
 
-" Remap ESC to ii
-:imap ii <Esc>
+" Remap ESC to ii; unneeded after remapping keyboard CAPS to ESC
+":imap ii <Esc>
 
 let g:lightline = {
       \ 'colorscheme': 'darcula',
