@@ -36,7 +36,7 @@ Plug 'Rigellute/rigel'
 Plug 'arcticicestudio/nord-vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'doums/darcula'
-Plug 'ap/vim-css-color'
+Plug 'chrisbra/Colorizer'
 
 " Initialize plugin system
 call plug#end()
@@ -71,5 +71,5 @@ let g:lightline = {
       \ 'colorscheme': 'darcula',
       \ }
 
-"Other topics to investigate:
-"spellcheck
+"Automatically load Colorizer to allow color preivew in vim
+:let g:colorizer_auto_color = 1
