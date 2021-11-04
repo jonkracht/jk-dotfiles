@@ -105,6 +105,7 @@ local vi_focus     = false -- vi-like client focus https://github.com/lcpz/aweso
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("EDITOR") or "gedit"
 local browser      = "brave-browser"
+local file_manager  = "nautilus" -- graphical file manager of choice 
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
@@ -522,6 +523,9 @@ globalkeys = mytable.join(
     -- User programs
     awful.key({ modkey }, "b", function () awful.spawn(browser) end,
               {description = "run browser", group = "launcher"}),
+
+    awful.key({ modkey }, "a", function () awful.spawn(file_manager) end,
+                {description = "launch file manager", group = "launcher"}),
 
     -- Default
     --[[ Menubar
