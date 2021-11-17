@@ -61,10 +61,12 @@ highlight CursorLine ctermbg=Yellow cterm=bold guibg=#2b2b2b
 highlight CursorColumn ctermbg=Yellow cterm=bold guibg=#2b2b2b
 
 "highlight Normal gui
+highlight LineNr guibg=NONE "Coordinate line number background
 
 map <C-o> :NERDTreeToggle<CR>
 
-" Remap ESC to ii; unneeded after remapping keyboard CAPS to ESC
+" Remap ESC to ii; unneeded after remapping keyboard CAPS to ESC by editting
+" /etc/default/keyboard
 ":imap ii <Esc>
 
 let g:lightline = {
