@@ -829,5 +829,5 @@ awful.spawn.with_shell("pkill compton; compton --config ~/.config/compton/compto
 --awful.spawn.with_shell("pkill compton; compton")
 
 awful.util.spawn("nm-applet")
-awful.util.spawn("pasystray")
+awful.spawn.with_shell("pkill pasystray; pasystray")  -- ensure only one instance
 awful.util.spawn("blueman-applet")
