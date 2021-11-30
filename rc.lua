@@ -106,7 +106,7 @@ local cycle_prev   = true  -- cycle with only the previously focused client or a
 local editor       = os.getenv("EDITOR") or "gedit"
 local browser      = "brave-browser"
 local file_manager  = "nautilus" -- graphical file manager of choice
-local scrlocker     = "i3lock --image=/home/jon/Documents/Theater-Mountain-Construction-cropped.png"
+local scrlocker     = "i3lock --image=/home/jon/Documents/Theater-Mountain-Construction-cropped.png --tiling --show-failed-attempts"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
@@ -526,7 +526,7 @@ globalkeys = mytable.join(
               {description = "run browser", group = "launcher"}),
 
     awful.key({ modkey }, "a", function () awful.spawn(file_manager) end,
-                {description = "launch file manager", group = "launcher"}),
+                {description = "launch graphical file manager", group = "launcher"}),
 
     -- Default
     --[[ Menubar
@@ -829,5 +829,5 @@ awful.spawn.with_shell("pkill compton; compton --config ~/.config/compton/compto
 --awful.spawn.with_shell("pkill compton; compton")
 
 awful.util.spawn("nm-applet")
-awful.spawn.with_shell("pkill pasystray; pasystray")  -- ensure only one instance
 awful.util.spawn("blueman-applet")
+awful.spawn.with_shell("pkill pasystray; pasystray")  -- ensure only one instance
