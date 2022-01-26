@@ -74,5 +74,11 @@ let g:lightline = {
       \ 'colorscheme': 'darcula',
       \ }
 
-"Automatically load Colorizer to allow color preivew in vim
+"Automatically load Colorizer to allow color preview in vim
 :let g:colorizer_auto_color = 1
+
+
+" Markdown preview config
+" set to 1, nvim will open the preview window after entering the markdown buffer
+" default: 0
+let g:mkdp_auto_start = 1
