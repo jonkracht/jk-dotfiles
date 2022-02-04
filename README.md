@@ -1,18 +1,16 @@
 # jk-dotfiles
-Collection of configuration files (also called dot files) for Ubuntu 20.04
+Repo backing up dotfiles on a Ubuntu 20.04 install
 
-## Method
-Gather config files from various points in the filesystem into a single repo and symlink a copy back to previous location.
+
 
 ## Software
-+ bpytop.conf       
-Resource monitor
-+ compton.conf      
-Compton compositor for X
-+ init.vim        
-Neovim text editor
-+ kitty.conf      
-Kitty terminal emulator
-+ rc.lua          
-Awesome window manager
 
+| Dotfile | Associated Software | Description |
+| --- | --- | --- |
+| .bash_aliases | BaSH | Supplemental aliases in Bash|
+| .bash_rc | Bash | Main rc for Bash |
+| bpytop.conf | [bpytop](https://pypi.org/project/bpytop/)| Terminal-based resource monitor |
+| compton.conf | Compton | Window compositor for X|
+| init.vim | [neovim](https://neovim.io/) | Text editor |
+| kitty.conf | [kitty](https://sw.kovidgoyal.net/kitty/) | Terminal emulator |
+| rc.lua | [awesomewm](https://awesomewm.org/) | Window manager |
