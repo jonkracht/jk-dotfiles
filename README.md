@@ -1,5 +1,5 @@
 # jk-dotfiles
-Repo backing up dotfiles on a Ubuntu 20.04 install
+Repo backing up dotfiles on a Ubuntu 20.04 system
 
 
 
@@ -7,7 +7,7 @@ Repo backing up dotfiles on a Ubuntu 20.04 install
 
 | Dotfile | Associated Software | Description |
 | --- | --- | --- |
-| .bash_aliases | BaSH | Supplemental aliases in Bash|
+| .bash_aliases | Bash | Supplemental aliases in Bash|
 | .bash_rc | Bash | Main rc for Bash |
 | bpytop.conf | [bpytop](https://pypi.org/project/bpytop/)| Terminal-based resource monitor |
 | compton.conf | Compton | Window compositor for X|

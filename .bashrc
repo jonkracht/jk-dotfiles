@@ -129,3 +129,4 @@ export PATH="/home/jon/scripts:$PATH"
 
 # Fuzzy find
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+. "$HOME/.cargo/env"

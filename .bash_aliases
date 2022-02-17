@@ -1,8 +1,8 @@
 # Aliases to supplement Ubuntu's default .bashrc
 
-## ls aliases ##
-alias l='ls -halF --color=auto'
-
+## ls/exa aliases ##
+#alias l='ls -halF --color=auto'
+alias l='exa --long --all'
 
 ## Navigation ##
 alias ..='cd ..'
