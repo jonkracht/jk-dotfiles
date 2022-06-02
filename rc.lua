@@ -107,6 +107,7 @@ local editor       = os.getenv("EDITOR") or "gedit"
 local browser      = "brave-browser"
 local file_manager  = "nautilus" -- graphical file manager of choice
 local scrlocker     = "i3lock --image=/home/jon/Documents/Theater-Mountain-Construction-cropped.png --tiling --show-failed-attempts"
+local volctl        = "pavucontrol"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
@@ -265,6 +266,10 @@ globalkeys = mytable.join(
     awful.key({  }, "Print", function() awful.util.spawn( "gnome-screenshot --area" ) end,
               {descripton = "take a screenshot", group = "hotkeys"}),
 	--]]
+    
+    -- Open volume control
+    awful.key({ modkey,   }, "v", function () awful.spawn(volctl) end,
+              {description = "Open volume control", group = "hotkeys"}),
 
     -- X screen locker
     awful.key({ altkey, "Control" }, "l", function () os.execute(scrlocker) end,
@@ -823,11 +828,15 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Autostart
 
--- Compton
--- Compton should automatically locate config fle
+-- Compton (should locate config file)
 awful.spawn.with_shell("pkill compton; compton --config ~/.config/compton/compton.conf")
 --awful.spawn.with_shell("pkill compton; compton")
 
+-- Network manager applet
 awful.util.spawn("nm-applet")
+
+-- Bluetooth manager
 awful.util.spawn("blueman-applet")
+
+-- Pulse audio system tray
 awful.spawn.with_shell("pkill pasystray; pasystray")  -- ensure only one instance

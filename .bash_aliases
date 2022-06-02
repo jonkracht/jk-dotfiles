@@ -4,14 +4,17 @@
 #alias l='ls -halF --color=auto'
 alias l='exa --long --all'
 
+# Give number of files in directory
+alias n='ls | wc -l'
+
 ## Navigation ##
 alias ..='cd ..'
 
 
 ## Launch
 
-# Vim
 alias v='nvim'
+alias lo='libreoffice'
 
 # Launch graphical file manager
 #alias fm='2>/dev/null 1>/dev/null nautilus . &'
