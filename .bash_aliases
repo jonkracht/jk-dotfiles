@@ -1,4 +1,8 @@
-# Aliases to supplement Ubuntu's default .bashrc
+# Aliases to supplement .bashrc
+
+# Allow alias use in sudo commands
+# (By default, only first word of a command is checked to be an alias.  Appending a space to the command causes the following word to be compared to known aliases.)
+alias sudo='sudo '
 
 ## ls/exa aliases ##
 #alias l='ls -halF --color=auto'
@@ -15,10 +19,11 @@ alias ..='cd ..'
 
 alias v='nvim'
 alias lo='libreoffice'
+alias top='btop'
 
-# Launch graphical file manager
-#alias fm='2>/dev/null 1>/dev/null nautilus . &'
-alias fm='2>/dev/null 1>/dev/null pcmanfm . &'
+# Graphical file manager
+alias fm='2>/dev/null 1>/dev/null nautilus . &'
+#alias fm='2>/dev/null 1>/dev/null pcmanfm . &'
 #alias fm='2>/dev/null 1>/dev/null spacefm . &'
 #alias fm='2>/dev/null 1>/dev/null thunar . &'
 

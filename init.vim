@@ -25,11 +25,13 @@ syntax enable
 
 
 
-"Plugins
-"Using vim-plug (https://github.com/junegunn/vim-plug)
+"Plugins:  using vim-plug (https://github.com/junegunn/vim-plug)
 call plug#begin()
 Plug 'preservim/nerdtree'
 Plug 'itchyny/lightline.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+"Color schemes:
 Plug 'dracula/vim'
 Plug 'morhetz/gruvbox'
 Plug 'Rigellute/rigel'
@@ -37,21 +39,23 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'doums/darcula'
 Plug 'chrisbra/Colorizer'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'jaredgorski/spacecamp'
 
 " Initialize plugin system
 call plug#end()
 
 
-" color schemes
+" Color schemes
+"
 "colorscheme codedark
-colorscheme darcula
+"colorscheme darcula
 "colorscheme default
 "colorscheme dracula
 "colorscheme evening
 "colorscheme gruvbox
 "colorscheme nord
 "colorscheme rigel
+colorscheme spacecamp
 
 
 "Enable transparency
@@ -70,8 +74,10 @@ map <C-o> :NERDTreeToggle<CR>
 " /etc/default/keyboard
 ":imap ii <Esc>
 
+"Colorschemes https://github.com/itchyny/lightline.vim/blob/master/colorscheme.md
+"Examples: darcula, materia, Tomorrow_Night_Blue, 
 let g:lightline = {
-      \ 'colorscheme': 'darcula',
+      \ 'colorscheme': 'Tomorrow_Night_Blue',
       \ }
 
 "Automatically load Colorizer to allow color preview in vim
