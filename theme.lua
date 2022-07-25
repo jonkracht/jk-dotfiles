@@ -17,10 +17,15 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/jk-copland"
 
-theme.wallpaper = "/usr/share/backgrounds/pop/kate-hazen-pop-retro2.png"
+theme.wallpaper = os.getenv("HOME") .. "/Downloads/762343.jpg"
+--theme.wallpaper = "/mnt/1-tb-hd/art/paul-klee/Theater-Mountain-Construction-cropped.jpg"
+--theme.wallpaper = "/usr/share/backgrounds/pop/kate-hazen-pop-retro2.png"
 --theme.wallpaper                                 = theme.dir .. "/wall.png"
 
-theme.font                                      = "Terminus 10.5"
+--theme.font                                      = "Terminus 11.5"
+theme.font                                      = "FiraSans-SemiBold 12"
+
+
 theme.fg_normal                                 = "#BBBBBB"
 
 
@@ -351,12 +356,14 @@ function theme.at_screen_connect(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            small_spr,
-            s.mylayoutbox,
-            first,
-            bar_spr,
+            --small_spr,
+            --s.mylayoutbox,
+            --first,
+            --bar_spr,
+            spr, spr,
             s.mytaglist,
             first,
+            spr, spr, spr, -- gap between tag list and software
             s.mypromptbox,
         },
         s.mytasklist, -- Middle widget
@@ -365,17 +372,22 @@ function theme.at_screen_connect(s)
             wibox.widget.systray(),
             small_spr,
             --theme.mail.widget,
-            mpdicon,
-            theme.mpd.widget,
+            --mpdicon,
+            --theme.mpd.widget,
+            bar_spr,
             baticon,
             batwidget,
-            bar_spr,
+            --bar_spr,
             --fsicon,
             --fswidget,
-            bar_spr,
+            --bar_spr,
+            spr,
             volicon,
             volumewidget,
-            bar_spr,
+            --bar_spr,
+            spr,
+            spr,
+            spr,
             mytextclock,
         },
     }

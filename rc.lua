@@ -113,6 +113,9 @@ local file_manager  = "pcmanfm" -- nautilus
 -- Screen locker (update to allow jpg; imagemagick's convert?)
 local scrlocker     = "i3lock --image=/mnt/1-tb-hd/art/paul-klee/Theater-Mountain-Construction-cropped.png --tiling --show-failed-attempts"
 
+-- Screenshot
+local screenshot = "flameshot gui"
+
 -- Volume control program:  Update for pipewre
 local volctl        = "pavucontrol" -- for pulse audio
 
@@ -262,17 +265,8 @@ root.buttons(mytable.join(
 
 globalkeys = mytable.join(
     -- Take a screenshot
-    -- https://github.com/lcpz/dots/blob/master/bin/screenshot
-    -- awful.key({ altkey }, "p", function() os.execute("screenshot") end,
-             -- {description = "take a screenshot", group = "hotkeys"}),
-    
-    awful.key({  }, "Print", function() awful.util.spawn( "flameshot gui" ) end,
+    awful.key({  }, "Print", function() awful.util.spawn( screenshot ) end,
               {descripton = "take a screenshot", group = "hotkeys"}),
-	
-	--[[
-    awful.key({  }, "Print", function() awful.util.spawn( "gnome-screenshot --area" ) end,
-              {descripton = "take a screenshot", group = "hotkeys"}),
-	--]]
     
     -- Open volume control
     awful.key({ modkey,   }, "v", function () awful.spawn(volctl) end,
@@ -458,13 +452,13 @@ globalkeys = mytable.join(
     -- ALSA volume control
     awful.key({ altkey }, "Up",
         function ()
-            os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
+            os.execute(string.format("amixer -q set %s 5%%+", beautiful.volume.channel))
             beautiful.volume.update()
         end,
         {description = "volume up", group = "hotkeys"}),
     awful.key({ altkey }, "Down",
         function ()
-            os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
+            os.execute(string.format("amixer -q set %s 5%%-", beautiful.volume.channel))
             beautiful.volume.update()
         end,
         {description = "volume down", group = "hotkeys"}),
