@@ -29,7 +29,11 @@ syntax enable
 call plug#begin()
 Plug 'preservim/nerdtree'
 Plug 'itchyny/lightline.vim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+"Launch markdown preview in browser
+"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'iamcco/markdown-preview.vim', { 'do': { -> mkdp#util#install() }, 'for': 'markdown' }
+
 
 "Color schemes:
 Plug 'dracula/vim'

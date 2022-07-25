@@ -94,10 +94,11 @@ local themes = {
     "powerarrow-dark", -- 7
     "rainbow",         -- 8
     "steamburn",       -- 9
-    "vertex"           -- 10
+    "vertex",          -- 10
+    "jk-copland"        --11
 }
 
-local chosen_theme = themes[2]
+local chosen_theme = themes[11]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "kitty"
@@ -105,16 +106,22 @@ local vi_focus     = false -- vi-like client focus https://github.com/lcpz/aweso
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("EDITOR") or "gedit"
 local browser      = "brave-browser"
-local file_manager  = "nautilus" -- graphical file manager of choice
-local scrlocker     = "i3lock --image=/home/jon/Documents/Theater-Mountain-Construction-cropped.png --tiling --show-failed-attempts"
-local volctl        = "pavucontrol"
+
+-- Graphical file manager
+local file_manager  = "pcmanfm" -- nautilus
+
+-- Screen locker (update to allow jpg; imagemagick's convert?)
+local scrlocker     = "i3lock --image=/mnt/1-tb-hd/art/paul-klee/Theater-Mountain-Construction-cropped.png --tiling --show-failed-attempts"
+
+-- Volume control program:  Update for pipewre
+local volctl        = "pavucontrol" -- for pulse audio
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
 awful.layout.layouts = {
     --awful.layout.suit.floating,
-    awful.layout.suit.tile,
-    --awful.layout.suit.tile.left,
+    --awful.layout.suit.tile,
+    awful.layout.suit.tile.left,
     --awful.layout.suit.tile.bottom,
     --awful.layout.suit.tile.top,
     --awful.layout.suit.fair,
