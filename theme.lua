@@ -17,7 +17,8 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/jk-copland"
 
-theme.wallpaper = os.getenv("HOME") .. "/Downloads/762343.jpg"
+--theme.wallpaper = os.getenv("HOME") .. "/Pictures/wallpapers/762343.jpg"
+theme.wallpaper = os.getenv("HOME") .. "/Pictures/wallpapers/canvas_by_roytanck.jpg"
 --theme.wallpaper = "/mnt/1-tb-hd/art/paul-klee/Theater-Mountain-Construction-cropped.jpg"
 --theme.wallpaper = "/usr/share/backgrounds/pop/kate-hazen-pop-retro2.png"
 --theme.wallpaper                                 = theme.dir .. "/wall.png"
@@ -28,8 +29,13 @@ theme.font                                      = "FiraSans-SemiBold 12"
 
 theme.fg_normal                                 = "#BBBBBB"
 
+-- Font color of window in focus in tag list
+--theme.fg_focus                                  = "#78A4FF" --blue
+--theme.fg_focus                                  = "#cd9e0a" --yellow-orange
+--theme.fg_focus                                  = "#ff69b4" -- hot pink
+theme.fg_focus                                  = "#ff9a4d"
 
-theme.fg_focus                                  = "#78A4FF"
+
 
 theme.bg_normal                                 = "#111111"
 theme.bg_focus                                  = "#111111"
@@ -38,6 +44,7 @@ theme.bg_urgent                                 = "#FFFFFF"
 theme.border_width                              = dpi(1)
 theme.border_normal                             = "#141414"
 
+-- If there are two windows in a workspace, border color of window in focus
 --theme.border_focus                              = "#93B6FF"
 theme.border_focus                              = "#141414"
 
@@ -48,7 +55,15 @@ theme.titlebar_bg_normal                        = "#191919"
 theme.titlebar_bg_focus                         = "#262626"
 theme.menu_height                               = dpi(16)
 theme.menu_width                                = dpi(130)
+
+
+
+
 theme.tasklist_disable_icon                     = true
+
+
+
+-- Icons
 theme.awesome_icon                              = theme.dir .."/icons/awesome.png"
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
 theme.taglist_squares_sel                       = theme.dir .. "/icons/square_unsel.png"

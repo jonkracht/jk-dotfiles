@@ -31,9 +31,7 @@ Plug 'preservim/nerdtree'
 Plug 'itchyny/lightline.vim'
 
 "Launch markdown preview in browser
-"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'iamcco/markdown-preview.vim', { 'do': { -> mkdp#util#install() }, 'for': 'markdown' }
-
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 
 "Color schemes:
 Plug 'dracula/vim'
@@ -45,25 +43,25 @@ Plug 'doums/darcula'
 Plug 'chrisbra/Colorizer'
 Plug 'jaredgorski/spacecamp'
 
-" Initialize plugin system
 call plug#end()
 
 
-" Color schemes
-"
-"colorscheme codedark
-"colorscheme darcula
-"colorscheme default
-"colorscheme dracula
-"colorscheme evening
-"colorscheme gruvbox
-"colorscheme nord
-"colorscheme rigel
+
+
+" Set color scheme
+" Installed:  codedark, darcula, default, dracula, evening, gruvbox, nord,
+" rigel, spacecamp
 colorscheme spacecamp
 
 
 "Enable transparency
 highlight Normal guibg=none
+
+"Set region below text to be transparent
+highlight EndOfBuffer guibg=none
+
+"Set character printed in left column to be blank
+set fillchars=fold:\ ,vert:\│,eob:\ ,msgsep:‾
 
 "Explicitly set cursorline/column properties
 highlight CursorLine ctermbg=Yellow cterm=bold guibg=#2b2b2b
