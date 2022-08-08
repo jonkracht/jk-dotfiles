@@ -288,7 +288,7 @@ globalkeys = mytable.join(
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
-    -- COMMENTED OUT FOR HOTKEY CONFLICT WITH BROWSER PREVIOUS/NEXT
+    -- REMOVED FOR BROWSER PREVIOUS/NEXT CONFLICT
     -- Non-empty tag browsing
     --[[awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end,
               {description = "view  previous nonempty", group = "tag"}),
@@ -348,10 +348,13 @@ globalkeys = mytable.join(
               {description = "focus the next screen", group = "screen"}),
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),--]]
+
+    -- Change monitor focus          
     awful.key({ modkey, "Control" }, "Left", function () awful.screen.focus_relative( 1) end,
               {description = "focus the next screen", group = "screen"}),
     awful.key({ modkey, "Control" }, "Right", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),    
+    
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
     awful.key({ modkey,           }, "Tab",
@@ -449,25 +452,32 @@ globalkeys = mytable.join(
     awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") end,
               {description = "-10%", group = "hotkeys"}),
 
-    -- ALSA volume control
-    awful.key({ altkey }, "Up",
+
+
+    -- Volume control
+
+    awful.key({ }, "XF86AudioRaiseVolume",
         function ()
             os.execute(string.format("amixer -q set %s 5%%+", beautiful.volume.channel))
             beautiful.volume.update()
         end,
         {description = "volume up", group = "hotkeys"}),
-    awful.key({ altkey }, "Down",
+
+    awful.key({ }, "XF86AudioLowerVolume",
         function ()
             os.execute(string.format("amixer -q set %s 5%%-", beautiful.volume.channel))
             beautiful.volume.update()
         end,
         {description = "volume down", group = "hotkeys"}),
-    awful.key({ altkey }, "m",
+
+    awful.key({ }, "XF86AudioMute",
         function ()
             os.execute(string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
             beautiful.volume.update()
         end,
         {description = "toggle mute", group = "hotkeys"}),
+
+    --[[
     awful.key({ altkey, "Control" }, "m",
         function ()
             os.execute(string.format("amixer -q set %s 100%%", beautiful.volume.channel))
@@ -480,8 +490,11 @@ globalkeys = mytable.join(
             beautiful.volume.update()
         end,
         {description = "volume 0%", group = "hotkeys"}),
-   
+    --]]
+
+
      -- MPD control
+     --[[
     awful.key({ altkey, "Control" }, "Up",
         function ()
             os.execute("mpc toggle")
@@ -519,6 +532,25 @@ globalkeys = mytable.join(
             naughty.notify(common)
         end,
         {description = "mpc on/off", group = "widgets"}),
+    --]]
+    
+
+    -- Rhythmbox control
+    awful.key({ }, "XF86AudioStop",
+        function () os.execute("rhythmbox-client --play-pause") end,
+        {description = "Rhythmbox play/pause", group = "hotkeys"}),
+    awful.key({ }, "XF86AudioPlay",
+        function () os.execute("rhythmbox-client --play-pause") end,
+        {description = "Rhythmbox play/pause", group = "hotkeys"}),
+    awful.key({ }, "XF86AudioPrev",
+        function () os.execute("rhythmbox-client --previous") end,
+        {description = "Rhythmbox previous track", group = "hotkeys"}),
+    awful.key({ }, "XF86AudioNext",
+        function () os.execute("rhythmbox-client --next") end,
+        {description = "Rhythmbox previous track", group = "hotkeys"}),
+
+
+
 
     -- Copy primary to clipboard (terminals to gtk)
     awful.key({ modkey }, "c", function () awful.spawn.with_shell("xsel | xsel -i -b") end,
@@ -539,6 +571,7 @@ globalkeys = mytable.join(
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
     --]]
+
     --dmenu
     awful.key({ modkey }, "z", function ()
             os.execute(string.format("dmenu_run -i -fn 'FiraSans-Bold' -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
