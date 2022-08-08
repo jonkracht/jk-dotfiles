@@ -1,5 +1,10 @@
 # Additions to stock .profile file
 
+# Include following codeblock to .profile:
+#if [ -f ~/.profile_additions ]; then
+#    . ~/.profile_additions
+#fi
+
 # Adding ~/scripts to path
 export PATH="$HOME/scripts:$PATH"
 

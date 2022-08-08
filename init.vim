@@ -33,6 +33,9 @@ Plug 'itchyny/lightline.vim'
 "Launch markdown preview in browser
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 
+"Preview hex colors
+Plug 'chrisbra/Colorizer'
+
 "Color schemes:
 Plug 'dracula/vim'
 Plug 'morhetz/gruvbox'
@@ -40,7 +43,6 @@ Plug 'Rigellute/rigel'
 Plug 'arcticicestudio/nord-vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'doums/darcula'
-Plug 'chrisbra/Colorizer'
 Plug 'jaredgorski/spacecamp'
 
 call plug#end()
