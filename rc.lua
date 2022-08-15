@@ -104,16 +104,12 @@ local altkey       = "Mod1"
 local terminal     = "kitty"
 local vi_focus     = false -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
+
+-- Define system software
 local editor       = os.getenv("EDITOR") or "gedit"
 local browser      = "brave-browser"
-
--- Graphical file manager
-local file_manager  = "pcmanfm" -- nautilus
-
--- Screen locker (update to allow jpg; imagemagick's convert?)
+local file_manager  = "nautilus" -- nautilus, pcmanfm (fix inconsistent theming)
 local scrlocker     = "i3lock --image=/mnt/1-tb-hd/art/paul-klee/Theater-Mountain-Construction-cropped.png --tiling --show-failed-attempts"
-
--- Screenshot
 local screenshot = "flameshot gui"
 
 -- Volume control program:  Update for pipewre
@@ -537,18 +533,24 @@ globalkeys = mytable.join(
 
     -- Rhythmbox control
     awful.key({ }, "XF86AudioStop",
-        function () os.execute("rhythmbox-client --play-pause") end,
-        {description = "Rhythmbox play/pause", group = "hotkeys"}),
+        function () awful.spawn.easy_async('rhythmbox-client --print-playing-format="%aa\n%tt\n%at"', 
+            function(stdout, stderr, reason, exit_code)
+            naughty.notify { text = stdout, timeout = 10, opacity=0.88, bg='#30062e', fg='#FFFFFF', font='FiraSans-BoldItalic 16'} end) 
+            end,
+            {description = "Rhythmbox track info", group = "hotkeys"}),
+
     awful.key({ }, "XF86AudioPlay",
         function () os.execute("rhythmbox-client --play-pause") end,
         {description = "Rhythmbox play/pause", group = "hotkeys"}),
+
     awful.key({ }, "XF86AudioPrev",
         function () os.execute("rhythmbox-client --previous") end,
         {description = "Rhythmbox previous track", group = "hotkeys"}),
+    
     awful.key({ }, "XF86AudioNext",
         function () os.execute("rhythmbox-client --next") end,
         {description = "Rhythmbox previous track", group = "hotkeys"}),
-
+    
 
 
 
@@ -874,3 +876,7 @@ awful.util.spawn("blueman-applet")
 
 -- Pulse audio system tray
 awful.spawn.with_shell("pkill pasystray; pasystray")  -- ensure only one instance
+--awful.util.spawn("pasystray")
+
+-- Monitor configuration
+awful.spawn.with_shell("laptop-monitor-boot-setup.sh")

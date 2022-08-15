@@ -50,16 +50,16 @@ call plug#end()
 
 
 
-" Set color scheme
+" Set text color scheme
 " Installed:  codedark, darcula, default, dracula, evening, gruvbox, nord,
 " rigel, spacecamp
 colorscheme spacecamp
 
 
-"Enable transparency
+"Enable background transparency
 highlight Normal guibg=none
 
-"Set region below text to be transparent
+"Set region below text to be transparent (rather than a solid color)
 highlight EndOfBuffer guibg=none
 
 "Set character printed in left column to be blank
@@ -84,11 +84,12 @@ let g:lightline = {
       \ 'colorscheme': 'Tomorrow_Night_Blue',
       \ }
 
-"Automatically load Colorizer to allow color preview in vim
-:let g:colorizer_auto_color = 1
+"Automatically load Colorizer for some or all filetypes
+"let g:colorizer_auto_color = 1
+let g:colorizer_auto_filetype='*' " or 'css, html'
 
+"Disable highlighting of color names in text
+let g:colorizer_colornames = 0
 
-" Markdown preview config
-" set to 1, nvim will open the preview window after entering the markdown buffer
-" default: 0
+"Preview markdown in a browser
 let g:mkdp_auto_start = 1
