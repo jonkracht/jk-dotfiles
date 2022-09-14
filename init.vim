@@ -33,8 +33,9 @@ Plug 'itchyny/lightline.vim'
 "Launch markdown preview in browser
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 
-"Preview hex colors
+"Preview color in terminal
 Plug 'chrisbra/Colorizer'
+Plug 'vimwiki/vimwiki'
 
 "Color schemes:
 Plug 'dracula/vim'
@@ -51,8 +52,7 @@ call plug#end()
 
 
 " Set text color scheme
-" Installed:  codedark, darcula, default, dracula, evening, gruvbox, nord,
-" rigel, spacecamp
+" Installed:  codedark, darcula, default, dracula, evening, gruvbox, nord, rigel, spacecamp
 colorscheme spacecamp
 
 
@@ -65,17 +65,19 @@ highlight EndOfBuffer guibg=none
 "Set character printed in left column to be blank
 set fillchars=fold:\ ,vert:\│,eob:\ ,msgsep:‾
 
-"Explicitly set cursorline/column properties
-highlight CursorLine ctermbg=Yellow cterm=bold guibg=#2b2b2b
-highlight CursorColumn ctermbg=Yellow cterm=bold guibg=#2b2b2b
+"Explicitly set cursorline/column properties  2b2b2b
+highlight CursorLine cterm=bold guibg=#2b2b2b
+highlight CursorColumn cterm=bold guibg=#2b2b2b
+
+"highlight CursorColumn ctermbg=Yellow cterm=bold guibg=#7285b7
 
 "highlight Normal gui
 highlight LineNr guibg=NONE "Coordinate line number background
 
 map <C-o> :NERDTreeToggle<CR>
 
-" Remap ESC to ii; unneeded after remapping keyboard CAPS to ESC by editting
-" /etc/default/keyboard
+" Remap ESC to ii
+" (now unneeded after remapping keyboard CAPS to ESC by editting /etc/default/keyboard)
 ":imap ii <Esc>
 
 "Colorschemes https://github.com/itchyny/lightline.vim/blob/master/colorscheme.md
@@ -91,5 +93,14 @@ let g:colorizer_auto_filetype='*' " or 'css, html'
 "Disable highlighting of color names in text
 let g:colorizer_colornames = 0
 
-"Preview markdown in a browser
+"Preview markdown rendering in a browser
 let g:mkdp_auto_start = 1
+
+"Vim-wiki settings
+"Setting required in Help
+set nocompatible
+filetype plugin on
+syntax on
+
+"Use markdown syntax
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]

@@ -17,38 +17,37 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/jk-copland"
 
---theme.wallpaper = os.getenv("HOME") .. "/Pictures/wallpapers/762343.jpg"
-theme.wallpaper = os.getenv("HOME") .. "/Pictures/wallpapers/canvas_by_roytanck.jpg"
---theme.wallpaper = "/mnt/1-tb-hd/art/paul-klee/Theater-Mountain-Construction-cropped.jpg"
---theme.wallpaper = "/usr/share/backgrounds/pop/kate-hazen-pop-retro2.png"
---theme.wallpaper                                 = theme.dir .. "/wall.png"
+--Set wallpaper:  Can be absolute path, relative to theme.dir, or relative os.getenv("HOME")
+--theme.wallpaper = os.getenv("HOME") .. "/Pictures/wallpapers/canvas_by_roytanck.jpg"
+theme.wallpaper                                 = theme.dir .. "/wall.png"
 
---theme.font                                      = "Terminus 11.5"
-theme.font                                      = "FiraSans-SemiBold 12"
+theme.font                                      = "FiraSans-SemiBold 12" -- "Terminus 11.5"
 
+-- Define colors used in several places
+local hl_color = "#ff9a4d" 
+local blue   = "#72bcd4"
+local red    = "#EB8F8F"
+local green  = "#8FEB8F"
 
 theme.fg_normal                                 = "#BBBBBB"
 
--- Font color of window in focus in tag list
---theme.fg_focus                                  = "#78A4FF" --blue
---theme.fg_focus                                  = "#cd9e0a" --yellow-orange
---theme.fg_focus                                  = "#ff69b4" -- hot pink
-theme.fg_focus                                  = "#ff9a4d"
-
+-- Font color for window in focus in the tag list
+theme.fg_focus = hl_color
 
 
 theme.bg_normal                                 = "#111111"
 theme.bg_focus                                  = "#111111"
 theme.fg_urgent                                 = "#000000"
 theme.bg_urgent                                 = "#FFFFFF"
+
 theme.border_width                              = dpi(1)
 theme.border_normal                             = "#141414"
 
 -- If there are two windows in a workspace, border color of window in focus
---theme.border_focus                              = "#93B6FF"
 theme.border_focus                              = "#141414"
 
-theme.taglist_fg_focus                          = "#FFFFFF"
+theme.taglist_fg_focus = hl_color 
+
 theme.taglist_bg_focus                          = "#111111"
 theme.taglist_bg_normal                         = "#111111"
 theme.titlebar_bg_normal                        = "#191919"
@@ -57,10 +56,7 @@ theme.menu_height                               = dpi(16)
 theme.menu_width                                = dpi(130)
 
 
-
-
 theme.tasklist_disable_icon                     = true
-
 
 
 -- Icons
@@ -118,9 +114,7 @@ theme.layout_termfair                           = theme.dir .. "/icons/termfair.
 theme.layout_centerwork                         = theme.dir .. "/icons/centerwork.png"
 
 local markup = lain.util.markup
-local blue   = theme.fg_focus
-local red    = "#EB8F8F"
-local green  = "#8FEB8F"
+
 
 -- Textclock
 --os.setlocale(os.getenv("LANG")) -- to localize the clock
@@ -159,6 +153,7 @@ theme.mail = lain.widget.imap({
 --]]
 
 -- MPD
+--[[
 local mpdicon = wibox.widget.imagebox()
 theme.mpd = lain.widget.mpd({
     settings = function()
@@ -181,6 +176,7 @@ theme.mpd = lain.widget.mpd({
         widget:set_markup(markup.font(theme.font, markup(blue, title) .. artist))
     end
 })
+--]]
 
 -- Battery
 local baticon = wibox.widget.imagebox(theme.bat)

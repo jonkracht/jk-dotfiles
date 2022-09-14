@@ -110,7 +110,7 @@ local editor       = os.getenv("EDITOR") or "gedit"
 local browser      = "brave-browser"
 local file_manager  = "nautilus" -- nautilus, pcmanfm (fix inconsistent theming)
 local scrlocker     = "i3lock --image=/mnt/1-tb-hd/art/paul-klee/Theater-Mountain-Construction-cropped.png --tiling --show-failed-attempts"
-local screenshot = "flameshot gui"
+local screenshot = "flameshot gui" -- include '--trayicon 0' to prevent tray icon from appearing
 
 -- Volume control program:  Update for pipewre
 local volctl        = "pavucontrol" -- for pulse audio
@@ -262,7 +262,7 @@ root.buttons(mytable.join(
 globalkeys = mytable.join(
     -- Take a screenshot
     awful.key({  }, "Print", function() awful.util.spawn( screenshot ) end,
-              {descripton = "take a screenshot", group = "hotkeys"}),
+              {descripton = "Screenshot", group = "hotkeys"}),
     
     -- Open volume control
     awful.key({ modkey,   }, "v", function () awful.spawn(volctl) end,
