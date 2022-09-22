@@ -533,22 +533,22 @@ globalkeys = mytable.join(
 
     -- Rhythmbox control
     awful.key({ }, "XF86AudioStop",
-        function () awful.spawn.easy_async('rhythmbox-client --print-playing-format="%aa\n%tt\n%at"', 
+        function () awful.spawn.easy_async('rhythmbox-client --no-start --print-playing-format="%aa\n%tt\n%at"', 
             function(stdout, stderr, reason, exit_code)
-            naughty.notify { text = stdout, timeout = 10, opacity=0.88, bg='#30062e', fg='#FFFFFF', font='FiraSans-BoldItalic 16'} end) 
+            naughty.notify { text = stdout, timeout = 6, opacity=0.999, bg='#000000', fg='#FFFFFF', font='FiraSans-BoldItalic 14'} end) 
             end,
             {description = "Rhythmbox track info", group = "hotkeys"}),
 
     awful.key({ }, "XF86AudioPlay",
-        function () os.execute("rhythmbox-client --play-pause") end,
+        function () os.execute("rhythmbox-client --no-start --play-pause") end,
         {description = "Rhythmbox play/pause", group = "hotkeys"}),
 
     awful.key({ }, "XF86AudioPrev",
-        function () os.execute("rhythmbox-client --previous") end,
+        function () os.execute("rhythmbox-client --no-start --previous") end,
         {description = "Rhythmbox previous track", group = "hotkeys"}),
     
     awful.key({ }, "XF86AudioNext",
-        function () os.execute("rhythmbox-client --next") end,
+        function () os.execute("rhythmbox-client --no-start --next") end,
         {description = "Rhythmbox previous track", group = "hotkeys"}),
     
 
