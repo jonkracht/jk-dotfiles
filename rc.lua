@@ -116,7 +116,7 @@ local screenshot = "flameshot gui" -- include '--trayicon 0' to prevent tray ico
 local volctl        = "pavucontrol" -- for pulse audio
 
 awful.util.terminal = terminal
-awful.util.tagnames = { "1", "2", "3", "4", "5" }
+awful.util.tagnames = { "1", "2", "3", "4", "5", "6", "7", "8" }
 awful.layout.layouts = {
     --awful.layout.suit.floating,
     --awful.layout.suit.tile,
@@ -535,7 +535,7 @@ globalkeys = mytable.join(
     awful.key({ }, "XF86AudioStop",
         function () awful.spawn.easy_async('rhythmbox-client --no-start --print-playing-format="%aa\n%tt\n%at"', 
             function(stdout, stderr, reason, exit_code)
-            naughty.notify { text = stdout, timeout = 6, opacity=0.999, bg='#000000', fg='#FFFFFF', font='FiraSans-BoldItalic 14'} end) 
+            naughty.notify { text = stdout, timeout = 6, opacity=0.999, bg='#000000', fg='#FFFFFF', font="$FONT ' 14'"} end) 
             end,
             {description = "Rhythmbox track info", group = "hotkeys"}),
 
@@ -576,8 +576,8 @@ globalkeys = mytable.join(
 
     --dmenu
     awful.key({ modkey }, "z", function ()
-            os.execute(string.format("dmenu_run -i -fn 'FiraSans-Bold' -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
-            beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
+            os.execute(string.format("dmenu_run -i -fn '%s' -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
+            beautiful.font, beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
         end,
         {description = "show dmenu", group = "launcher"}),
     --]]

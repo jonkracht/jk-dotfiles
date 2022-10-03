@@ -21,7 +21,8 @@ theme.dir                                       = os.getenv("HOME") .. "/.config
 --theme.wallpaper = os.getenv("HOME") .. "/Pictures/wallpapers/canvas_by_roytanck.jpg"
 theme.wallpaper                                 = theme.dir .. "/wall.png"
 
-theme.font                                      = "FiraSans-SemiBold 12" -- "Terminus 11.5"
+theme.font                                      = os.getenv("FONT") .. " 12"-- take font from an environment variable
+--theme.font                                      = "FiraSans-SemiBold 12" -- "Terminus 11.5"
 
 -- Define colors used in several places
 local hl_color = "#ff9a4d" 
@@ -125,7 +126,7 @@ mytextclock.font = theme.font
 theme.cal = lain.widget.cal({
     attach_to = { mytextclock },
     notification_preset = {
-        font = "Terminus 11",
+        font = "$FONT 11",
         fg   = theme.fg_normal,
         bg   = theme.bg_normal
     }
