@@ -30,11 +30,12 @@ call plug#begin()
 Plug 'preservim/nerdtree'
 Plug 'itchyny/lightline.vim'
 
-"Launch markdown preview in browser
+"Preview markdown files in web browser
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 
 "Preview color in terminal
 Plug 'chrisbra/Colorizer'
+
 Plug 'vimwiki/vimwiki'
 
 "Color schemes:

@@ -106,17 +106,19 @@ local vi_focus     = false -- vi-like client focus https://github.com/lcpz/aweso
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 
 -- Define system software
-local editor       = os.getenv("EDITOR") or "gedit"
-local browser      = "brave-browser"
-local file_manager  = "nautilus" -- nautilus, pcmanfm (fix inconsistent theming)
-local scrlocker     = "i3lock --image=/mnt/1-tb-hd/art/paul-klee/Theater-Mountain-Construction-cropped.png --tiling --show-failed-attempts"
-local screenshot = "flameshot gui" -- include '--trayicon 0' to prevent tray icon from appearing
+local editor       = os.getenv("editor") or "gedit"
+local browser      = os.getenv("browser")
+local fileManager  = os.getenv("fileManager")
+local scrlocker     = "$lockScreenCmd"  -- take from an envirnonment variable
+local screenshot = "flameshot gui"
 
 -- Volume control program:  Update for pipewre
 local volctl        = "pavucontrol" -- for pulse audio
 
 awful.util.terminal = terminal
+
 awful.util.tagnames = { "1", "2", "3", "4", "5", "6", "7", "8" }
+
 awful.layout.layouts = {
     --awful.layout.suit.floating,
     --awful.layout.suit.tile,
@@ -443,9 +445,9 @@ globalkeys = mytable.join(
               {description = "show weather", group = "widgets"}),
 
     -- Screen brightness
-    awful.key({ }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
+    awful.key({ }, "XF86MonBrightnessUp", function () os.execute("light -A 10") end,
               {description = "+10%", group = "hotkeys"}),
-    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") end,
+    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("light -U 10") end,
               {description = "-10%", group = "hotkeys"}),
 
 
@@ -535,7 +537,7 @@ globalkeys = mytable.join(
     awful.key({ }, "XF86AudioStop",
         function () awful.spawn.easy_async('rhythmbox-client --no-start --print-playing-format="%aa\n%tt\n%at"', 
             function(stdout, stderr, reason, exit_code)
-            naughty.notify { text = stdout, timeout = 6, opacity=0.999, bg='#000000', fg='#FFFFFF', font="$FONT ' 14'"} end) 
+            naughty.notify { text = stdout, timeout = 6, opacity=0.999, bg='#000000', fg='#FFFFFF', font=beautiful.font} end) 
             end,
             {description = "Rhythmbox track info", group = "hotkeys"}),
 
@@ -568,6 +570,10 @@ globalkeys = mytable.join(
     awful.key({ modkey }, "a", function () awful.spawn(file_manager) end,
                 {description = "launch graphical file manager", group = "launcher"}),
 
+    awful.key({ modkey, "Shift" }, "p", function () awful.spawn.with_shell("jk-power.sh") end,
+                {description = "power menu", group = "launcher"}),
+
+
     -- Default
     --[[ Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
@@ -575,12 +581,20 @@ globalkeys = mytable.join(
     --]]
 
     --dmenu
+    --[[
     awful.key({ modkey }, "z", function ()
             os.execute(string.format("dmenu_run -i -fn '%s' -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
-            beautiful.font, beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
+            beautiful.fontface, beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
         end,
         {description = "show dmenu", group = "launcher"}),
-    --]]
+   --]]
+
+    awful.key({ modkey }, "z", function ()
+            os.execute(string.format("dmenu_run %s -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
+            os.getenv("dmenu_flags"), beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
+        end,
+        {description = "launch dmenu_run", group = "launcher"}),
+
     -- alternatively use rofi, a dmenu-like application with more features
     -- check https://github.com/DaveDavenport/rofi for more details
     --[[ rofi

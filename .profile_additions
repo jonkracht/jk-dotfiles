@@ -10,3 +10,4 @@ export PATH="$HOME/scripts:$PATH"
 
 # Adding location of flatpak binaries so that dmenu may find them
 export PATH="$HOME/.local/share/flatpak/exports/bin:$PATH"
+

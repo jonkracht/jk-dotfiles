@@ -21,8 +21,18 @@ theme.dir                                       = os.getenv("HOME") .. "/.config
 --theme.wallpaper = os.getenv("HOME") .. "/Pictures/wallpapers/canvas_by_roytanck.jpg"
 theme.wallpaper                                 = theme.dir .. "/wall.png"
 
-theme.font                                      = os.getenv("FONT") .. " 12"-- take font from an environment variable
+theme.fontsize                                  = "12"
+theme.fontface                                  = os.getenv("FONT")
+--theme.font                                      = theme.fontface .. " " .. theme.fontsize
+theme.font = "Courier 10 Pitch Bold 12"
+
+--theme.font                                      = os.getenv("FONT") -- take font from an environment variable
 --theme.font                                      = "FiraSans-SemiBold 12" -- "Terminus 11.5"
+--theme.font                                      = "Courier 12"
+
+
+
+theme.fontsize = 6
 
 -- Define colors used in several places
 local hl_color = "#ff9a4d" 
