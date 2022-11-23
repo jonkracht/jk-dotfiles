@@ -109,7 +109,7 @@ local cycle_prev   = true  -- cycle with only the previously focused client or a
 local editor       = os.getenv("editor") or "gedit"
 local browser      = os.getenv("browser")
 local fileManager  = os.getenv("fileManager")
-local scrlocker     = "$lockScreenCmd"  -- take from an envirnonment variable
+local scrlocker     = os.getenv("lockScreenCmd")  -- take from an envirnonment variable
 local screenshot = "flameshot gui"
 
 -- Volume control program:  Update for pipewre
@@ -264,7 +264,7 @@ root.buttons(mytable.join(
 globalkeys = mytable.join(
     -- Take a screenshot
     awful.key({  }, "Print", function() awful.util.spawn( screenshot ) end,
-              {descripton = "Screenshot", group = "hotkeys"}),
+              {descripton = "Take a screenshot", group = "hotkeys"}),
     
     -- Open volume control
     awful.key({ modkey,   }, "v", function () awful.spawn(volctl) end,
@@ -276,7 +276,7 @@ globalkeys = mytable.join(
 
     -- Show help
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
-              {description="show help", group="awesome"}),
+              {description="Show Awesome help", group="awesome"}),
 
     -- Tag browsing
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
@@ -380,8 +380,8 @@ globalkeys = mytable.join(
         {description = "toggle wibox", group = "awesome"}),
         --]]
 
-    -- On-the-fly useless gaps change
-    awful.key({ altkey, "Control" }, "+", function () lain.util.useless_gaps_resize(1) end,
+    -- On-the-fly useless gaps change:  should be + rather than = 
+    awful.key({ altkey, "Control" }, "=", function () lain.util.useless_gaps_resize(1) end,
               {description = "increment useless gaps", group = "tag"}),
     awful.key({ altkey, "Control" }, "-", function () lain.util.useless_gaps_resize(-1) end,
               {description = "decrement useless gaps", group = "tag"}),
@@ -406,9 +406,9 @@ globalkeys = mytable.join(
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
-    awful.key({ modkey, altkey    }, "l",     function () awful.tag.incmwfact( 0.05)          end,
+    awful.key({ modkey, altkey    }, "l",     function () awful.tag.incmwfact( 0.01)          end,
               {description = "increase master width factor", group = "layout"}),
-    awful.key({ modkey, altkey    }, "h",     function () awful.tag.incmwfact(-0.05)          end,
+    awful.key({ modkey, altkey    }, "h",     function () awful.tag.incmwfact(-0.01)          end,
               {description = "decrease master width factor", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
               {description = "increase the number of master clients", group = "layout"}),
@@ -445,15 +445,16 @@ globalkeys = mytable.join(
               {description = "show weather", group = "widgets"}),
 
     -- Screen brightness
-    awful.key({ }, "XF86MonBrightnessUp", function () os.execute("light -A 10") end,
-              {description = "+10%", group = "hotkeys"}),
-    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("light -U 10") end,
-              {description = "-10%", group = "hotkeys"}),
+    awful.key({ }, "XF86MonBrightnessUp", function () os.execute("light -A 5") end,
+              {description = "+5%", group = "hotkeys"}),
+    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("light -U 5") end,
+              {description = "-5%", group = "hotkeys"}),
 
 
 
     -- Volume control
 
+    -- Add functionality of raise volume also unmuting
     awful.key({ }, "XF86AudioRaiseVolume",
         function ()
             os.execute(string.format("amixer -q set %s 5%%+", beautiful.volume.channel))
@@ -475,20 +476,6 @@ globalkeys = mytable.join(
         end,
         {description = "toggle mute", group = "hotkeys"}),
 
-    --[[
-    awful.key({ altkey, "Control" }, "m",
-        function ()
-            os.execute(string.format("amixer -q set %s 100%%", beautiful.volume.channel))
-            beautiful.volume.update()
-        end,
-        {description = "volume 100%", group = "hotkeys"}),
-    awful.key({ modkey , }, "F10",
-        function ()
-            os.execute(string.format("amixer -q set %s 0%%", beautiful.volume.channel))
-            beautiful.volume.update()
-        end,
-        {description = "volume 0%", group = "hotkeys"}),
-    --]]
 
 
      -- MPD control
@@ -565,13 +552,13 @@ globalkeys = mytable.join(
 
     -- User programs
     awful.key({ modkey }, "b", function () awful.spawn(browser) end,
-              {description = "run browser", group = "launcher"}),
+              {description = "Browser", group = "launcher"}),
 
-    awful.key({ modkey }, "a", function () awful.spawn(file_manager) end,
-                {description = "launch graphical file manager", group = "launcher"}),
+    awful.key({ modkey }, "a", function () awful.spawn(fileManager) end,
+                {description = "Graphical file manager", group = "launcher"}),
 
     awful.key({ modkey, "Shift" }, "p", function () awful.spawn.with_shell("jk-power.sh") end,
-                {description = "power menu", group = "launcher"}),
+                {description = "Power menu", group = "launcher"}),
 
 
     -- Default
@@ -581,19 +568,11 @@ globalkeys = mytable.join(
     --]]
 
     --dmenu
-    --[[
-    awful.key({ modkey }, "z", function ()
-            os.execute(string.format("dmenu_run -i -fn '%s' -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
-            beautiful.fontface, beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
-        end,
-        {description = "show dmenu", group = "launcher"}),
-   --]]
-
     awful.key({ modkey }, "z", function ()
             os.execute(string.format("dmenu_run %s -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
             os.getenv("dmenu_flags"), beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
         end,
-        {description = "launch dmenu_run", group = "launcher"}),
+        {description = "dmenu_run", group = "launcher"}),
 
     -- alternatively use rofi, a dmenu-like application with more features
     -- check https://github.com/DaveDavenport/rofi for more details
@@ -604,6 +583,7 @@ globalkeys = mytable.join(
         end,
         {description = "show rofi", group = "launcher"}),
     --]]
+
     -- Prompt
     awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"})
@@ -628,22 +608,29 @@ globalkeys = mytable.join(
 clientkeys = mytable.join(
     awful.key({ altkey, "Shift"   }, "m",      lain.util.magnify_client,
               {description = "magnify client", group = "client"}),
+
     awful.key({ modkey,           }, "f",
         function (c)
             c.fullscreen = not c.fullscreen
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
+
     awful.key({ "Control" , }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
+    
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
+
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
+
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),
+
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
               {description = "toggle keep on top", group = "client"}),
+
     awful.key({ modkey,           }, "n",
         function (c)
             -- The client currently has the input focus, so it cannot be
@@ -651,18 +638,21 @@ clientkeys = mytable.join(
             c.minimized = true
         end ,
         {description = "minimize", group = "client"}),
+
     awful.key({ modkey,           }, "m",
         function (c)
             c.maximized = not c.maximized
             c:raise()
         end ,
         {description = "(un)maximize", group = "client"}),
+
     awful.key({ modkey, "Control" }, "m",
         function (c)
             c.maximized_vertical = not c.maximized_vertical
             c:raise()
         end ,
         {description = "(un)maximize vertically", group = "client"}),
+
     awful.key({ modkey, "Shift"   }, "m",
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
