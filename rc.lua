@@ -884,3 +884,6 @@ awful.spawn.with_shell("pkill pasystray; pasystray")  -- ensure only one instanc
 
 -- Monitor configuration
 awful.spawn.with_shell("laptop-monitor-boot-setup.sh")
+
+-- Screensaver daemon
+awful.util.spawn("xscreensaver")
