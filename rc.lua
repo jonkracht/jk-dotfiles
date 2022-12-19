@@ -522,7 +522,7 @@ globalkeys = mytable.join(
 
     -- Rhythmbox control
     awful.key({ }, "XF86AudioStop",
-        function () awful.spawn.easy_async('rhythmbox-client --no-start --print-playing-format="%aa\n%tt\n%at"', 
+        function () awful.spawn.easy_async('rhythmbox-client --no-start --print-playing-format="%aa\n%tt\n%at\n%te (%td)"', 
             function(stdout, stderr, reason, exit_code)
             naughty.notify { text = stdout, timeout = 6, opacity=0.999, bg='#000000', fg='#FFFFFF', font=beautiful.font} end) 
             end,
@@ -886,4 +886,4 @@ awful.spawn.with_shell("pkill pasystray; pasystray")  -- ensure only one instanc
 awful.spawn.with_shell("laptop-monitor-boot-setup.sh")
 
 -- Screensaver daemon
-awful.util.spawn("xscreensaver")
+awful.util.spawn("xscreensaver -nosplash")

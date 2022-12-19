@@ -38,6 +38,7 @@ Plug 'chrisbra/Colorizer'
 
 Plug 'vimwiki/vimwiki'
 
+
 "Color schemes:
 Plug 'dracula/vim'
 Plug 'morhetz/gruvbox'
@@ -47,13 +48,15 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'doums/darcula'
 Plug 'jaredgorski/spacecamp'
 
+
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 
 
 
-" Set text color scheme
-" Installed:  codedark, darcula, default, dracula, evening, gruvbox, nord, rigel, spacecamp
+" Set text color scheme - see "color schemes" section in Plugins above for
+" available
 colorscheme spacecamp
 
 
@@ -75,7 +78,11 @@ highlight CursorColumn cterm=bold guibg=#2b2b2b
 "highlight Normal gui
 highlight LineNr guibg=NONE "Coordinate line number background
 
-map <C-o> :NERDTreeToggle<CR>
+map <C-f> :NERDTreeToggle<CR>
+
+" Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 " Remap ESC to ii
 " (now unneeded after remapping keyboard CAPS to ESC by editting /etc/default/keyboard)
@@ -105,3 +112,9 @@ syntax on
 
 "Use markdown syntax
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
+" Remap splits navigation to just CTRL + hjkl
+nnoremap <C-h> <C-w> h
+nnoremap <C-j> <C-w> h
+nnoremap <C-k> <C-w> h
+nnoremap <C-l> <C-w> h

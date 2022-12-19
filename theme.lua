@@ -23,8 +23,9 @@ theme.wallpaper                                 = theme.dir .. "/wall.png"
 
 theme.fontsize                                  = "12"
 theme.fontface                                  = os.getenv("FONT")
---theme.font                                      = theme.fontface .. " " .. theme.fontsize
-theme.font = "Courier 10 Pitch Bold 12"
+theme.fontface                                  = "JetBrainsMonoNL NFM, Bold"
+theme.font                                      = theme.fontface .. " " .. theme.fontsize
+--theme.font = "Courier 10 Pitch Bold 12"
 
 --theme.font                                      = os.getenv("FONT") -- take font from an environment variable
 --theme.font                                      = "FiraSans-SemiBold 12" -- "Terminus 11.5"

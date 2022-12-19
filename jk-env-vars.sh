@@ -5,15 +5,17 @@
 #export FONT="Linux Libertine Mono O"
 #export FONT="Nimbus Mono PS Regular"
 #export FONT="Ubuntu Mono"
-export FONT="Courier 10 Pitch Bold"
+#export FONT="Courier 10 Pitch Bold"
 #export FONT="Courier"
+export FONT="JetBrainsMono Nerd Font"
+
 
 #export KITTY_CONF_FONT='Courier10PitchBT-Roman'
 
 export Dmenu_Base_Cmd="dmenu_run -i -fn Courier"
 
-#export dmenu_flags="-i -fn '$FONT'"
-export dmenu_flags="-i -fn Courier"
+export dmenu_flags="-i -fn '$FONT'"
+#export dmenu_flags="-i -fn Courier"
 
 export fileManager="nautilus"
 
