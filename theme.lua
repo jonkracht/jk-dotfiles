@@ -21,9 +21,11 @@ theme.dir                                       = os.getenv("HOME") .. "/.config
 --theme.wallpaper = os.getenv("HOME") .. "/Pictures/wallpapers/canvas_by_roytanck.jpg"
 theme.wallpaper                                 = theme.dir .. "/wall.png"
 
-theme.fontsize                                  = "12"
-theme.fontface                                  = os.getenv("FONT")
-theme.fontface                                  = "JetBrainsMonoNL NFM, Bold"
+theme.fontsize                                  = "14"
+
+--theme.fontface                                  = os.getenv("FONT")
+theme.fontface                                  = "JetBrainsMono Nerd Font"
+
 theme.font                                      = theme.fontface .. " " .. theme.fontsize
 --theme.font = "Courier 10 Pitch Bold 12"
 
@@ -33,7 +35,6 @@ theme.font                                      = theme.fontface .. " " .. theme
 
 
 
-theme.fontsize = 6
 
 -- Define colors used in several places
 local hl_color = "#ff9a4d" 

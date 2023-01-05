@@ -1,18 +1,21 @@
-# Soft-linked in `/etc/profile.d/` directory
+# Soft-linked to `/etc/profile.d/`
 
 # Awesome accepts font name format with spaces
+# 
+
+
 #export FONT="FiraMono-Regular"
 #export FONT="Linux Libertine Mono O"
 #export FONT="Nimbus Mono PS Regular"
 #export FONT="Ubuntu Mono"
 #export FONT="Courier 10 Pitch Bold"
 #export FONT="Courier"
-export FONT="JetBrainsMono Nerd Font"
-
+#export FONT="JetBrainsMonoNLNerdFont-Regular"
+export FONT="JetBrainsMonoNLNerdFontCom-Bold"
 
 #export KITTY_CONF_FONT='Courier10PitchBT-Roman'
 
-export Dmenu_Base_Cmd="dmenu_run -i -fn Courier"
+#export Dmenu_Base_Cmd="dmenu_run -i -fn '$FONT'"
 
 export dmenu_flags="-i -fn '$FONT'"
 #export dmenu_flags="-i -fn Courier"

@@ -522,7 +522,7 @@ globalkeys = mytable.join(
 
     -- Rhythmbox control
     awful.key({ }, "XF86AudioStop",
-        function () awful.spawn.easy_async('rhythmbox-client --no-start --print-playing-format="%aa\n%tt\n%at\n%te (%td)"', 
+        function () awful.spawn.easy_async('rhythmbox-client --no-start --print-playing-format="%aa\n%tt\n%at\n%te (of %td)"', 
             function(stdout, stderr, reason, exit_code)
             naughty.notify { text = stdout, timeout = 6, opacity=0.999, bg='#000000', fg='#FFFFFF', font=beautiful.font} end) 
             end,
@@ -568,11 +568,20 @@ globalkeys = mytable.join(
     --]]
 
     --dmenu
-    awful.key({ modkey }, "z", function ()
+    --[[awful.key({ modkey }, "z", function ()
             os.execute(string.format("dmenu_run %s -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
             os.getenv("dmenu_flags"), beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
         end,
         {description = "dmenu_run", group = "launcher"}),
+    --]]
+
+    
+    awful.key({ modkey }, "z", function ()
+            os.execute(string.format("dmenu_run -i -fn 'JetBrainsMono Nerd Font' -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
+            beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
+        end,
+        {description = "dmenu_run", group = "launcher"}),
+
 
     -- alternatively use rofi, a dmenu-like application with more features
     -- check https://github.com/DaveDavenport/rofi for more details
@@ -868,11 +877,14 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Autostart
 
--- Compton (should locate config file)
-awful.spawn.with_shell("pkill compton; compton --config ~/.config/compton/compton.conf")
+-- Compositor (should locate config file)
+--awful.spawn.with_shell("pkill compton; compton --config ~/.config/compton/compton.conf")
 --awful.spawn.with_shell("pkill compton; compton")
 
--- Network manager applet
+awful.util.spawn("picom")
+
+
+-- NetworkManager applet
 awful.util.spawn("nm-applet")
 
 -- Bluetooth manager
