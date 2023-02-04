@@ -109,11 +109,10 @@ local cycle_prev   = true  -- cycle with only the previously focused client or a
 local editor       = os.getenv("editor") or "gedit"
 local browser      = os.getenv("browser")
 local fileManager  = os.getenv("fileManager")
-local scrlocker     = os.getenv("lockScreenCmd")  -- take from an envirnonment variable
+local scrlocker     = os.getenv("lockScreenCmd")
 local screenshot = "flameshot gui"
 
--- Volume control program:  Update for pipewre
-local volctl        = "pavucontrol" -- for pulse audio
+local volctl        = "pavucontrol"
 
 awful.util.terminal = terminal
 
@@ -279,9 +278,9 @@ globalkeys = mytable.join(
               {description="Show Awesome help", group="awesome"}),
 
     -- Tag browsing
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
+    awful.key({ modkey,           }, "j",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
+    awful.key({ modkey,           }, "k",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
@@ -308,7 +307,7 @@ globalkeys = mytable.join(
     ),
 
     -- By-direction client focus
-    awful.key({ modkey }, "j",
+    --[[awful.key({ modkey }, "j",
         function()
             awful.client.focus.global_bydirection("down")
             if client.focus then client.focus:raise() end
@@ -331,7 +330,7 @@ globalkeys = mytable.join(
             awful.client.focus.global_bydirection("right")
             if client.focus then client.focus:raise() end
         end,
-        {description = "focus right", group = "client"}),
+        {description = "focus right", group = "client"}),--]]
 
     -- Menu
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
@@ -347,12 +346,13 @@ globalkeys = mytable.join(
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),--]]
 
-    -- Change monitor focus          
-    awful.key({ modkey, "Control" }, "Left", function () awful.screen.focus_relative( 1) end,
+    -- Change monitor focus
+    awful.key({ modkey, "Shift" }, "k", function () awful.screen.focus_relative( 1) end,
               {description = "focus the next screen", group = "screen"}),
-    awful.key({ modkey, "Control" }, "Right", function () awful.screen.focus_relative(-1) end,
-              {description = "focus the previous screen", group = "screen"}),    
-    
+    awful.key({ modkey, "Shift" }, "j", function () awful.screen.focus_relative(-1) end,
+              {description = "focus the previous screen", group = "screen"}),
+
+     
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
     awful.key({ modkey,           }, "Tab",
@@ -453,21 +453,38 @@ globalkeys = mytable.join(
 
 
     -- Volume control
-
-    -- Add functionality of raise volume also unmuting
     awful.key({ }, "XF86AudioRaiseVolume",
-        function ()
-            os.execute(string.format("amixer -q set %s 5%%+", beautiful.volume.channel))
-            beautiful.volume.update()
-        end,
-        {description = "volume up", group = "hotkeys"}),
+        function () awful.spawn.easy_async_with_shell('amixer get Master | tail -2 | grep -c "off"', 
+            function(stdout, stderr, reason, exit_code)
+            if tonumber(stdout) > 0 then
+                os.execute(string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel)) 
+            end
+            
+            os.execute(string.format("amixer -q set %s 5%%+", beautiful.volume.channel)) end)
+            end,
+            {description = "Rhythmbox track info", group = "hotkeys"}),
 
+
+    awful.key({ }, "XF86AudioLowerVolume",
+        function () awful.spawn.easy_async_with_shell('amixer get Master | tail -2 | grep -c "off"', 
+            function(stdout, stderr, reason, exit_code)
+            if tonumber(stdout) > 0 then
+                os.execute(string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel)) 
+            end
+            
+            os.execute(string.format("amixer -q set %s 5%%-", beautiful.volume.channel)) end)
+            end,
+            {description = "volume down", group = "hotkeys"}),
+    
+    -- Older volume control
+    --[[
     awful.key({ }, "XF86AudioLowerVolume",
         function ()
             os.execute(string.format("amixer -q set %s 5%%-", beautiful.volume.channel))
             beautiful.volume.update()
         end,
         {description = "volume down", group = "hotkeys"}),
+    --]]
 
     awful.key({ }, "XF86AudioMute",
         function ()
@@ -877,10 +894,8 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Autostart
 
--- Compositor (should locate config file)
---awful.spawn.with_shell("pkill compton; compton --config ~/.config/compton/compton.conf")
+-- Compositor
 --awful.spawn.with_shell("pkill compton; compton")
-
 awful.util.spawn("picom")
 
 

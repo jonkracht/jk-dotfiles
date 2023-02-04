@@ -20,7 +20,8 @@ export FONT="JetBrainsMonoNLNerdFontCom-Bold"
 export dmenu_flags="-i -fn '$FONT'"
 #export dmenu_flags="-i -fn Courier"
 
-export fileManager="nautilus"
+#export fileManager="nautilus"
+export fileManager="pcmanfm-qt"
 
 export wallpaper="/home/jon/.config/awesome/themes/jk-copland/wall.png"
 
@@ -29,3 +30,6 @@ export lockScreenCmd="i3lock --image=$wallpaper --tiling --show-failed-attempts"
 
 export editor="nvim"
 export browser="brave-browser"
+
+# Control QT theming
+export QT_STYLE_OVERRIDE=kvantum 

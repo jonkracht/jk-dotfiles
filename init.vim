@@ -26,21 +26,23 @@ set wildmode=longest,list,full       "Enable auto-complete
 syntax enable
 
 
+let mapleader=" " "Maps Leader to space
 
 "Plugins:  managed with vim-plug (https://github.com/junegunn/vim-plug)
 "
 call plug#begin()
-Plug 'preservim/nerdtree'
 Plug 'itchyny/lightline.vim'
 
 "Preview markdown files in web browser
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 
-"Preview color in terminal
-Plug 'chrisbra/Colorizer'
+Plug 'chrisbra/Colorizer'  "Preview color in terminal
 
 Plug 'vimwiki/vimwiki'
 
+" Telescope
+Plug 'nvim-lua/plenary.nvim' " required by telescope
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 
 "Color schemes:
 Plug 'dracula/vim'
@@ -52,7 +54,17 @@ Plug 'doums/darcula'
 Plug 'jaredgorski/spacecamp'
 
 
+Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons' " icons for NERDTree
+
+"To look into
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim' "Fuzzy find plugin
+Plug 'junegunn/goyo.vim' "Removes Line numbers for focusing
+
+
+
+
 
 call plug#end()
 
@@ -81,8 +93,11 @@ highlight CursorColumn cterm=bold guibg=#2b2b2b
 "highlight Normal gui
 highlight LineNr guibg=NONE "Coordinate line number background
 
+" NERDTree
+let NERDTreeShowHidden=1 " 
 " Launch NERDTree with CTRL + f
-map <C-f> :NERDTreeToggle<CR>
+map <Leader>o :NERDTreeToggle<CR>
+
 
 " Start NERDTree when Vim is started with no file arguments
 autocmd StdinReadPre * let s:std_in=1
@@ -129,3 +144,12 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+
+map <C-\> :Goyo<CR> " Toggles fullscreen
+
+" Telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>

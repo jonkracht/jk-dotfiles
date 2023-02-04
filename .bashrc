@@ -129,4 +129,13 @@ export PATH="/home/jon/scripts:$PATH"
 
 # Fuzzy find
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-. "$HOME/.cargo/env"
+
+#. "$HOME/.cargo/env"
+
+if [ -f ~/.bashrc_additions ]; then
+    . ~/.bashrc_additions
+fi
+
+
+
+#eval "$(starship init bash)"
