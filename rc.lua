@@ -347,9 +347,9 @@ globalkeys = mytable.join(
               {description = "focus the previous screen", group = "screen"}),--]]
 
     -- Change monitor focus
-    awful.key({ modkey, "Shift" }, "k", function () awful.screen.focus_relative( 1) end,
+    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative( 1) end,
               {description = "focus the next screen", group = "screen"}),
-    awful.key({ modkey, "Shift" }, "j", function () awful.screen.focus_relative(-1) end,
+    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),
 
      

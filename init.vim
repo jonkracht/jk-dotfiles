@@ -53,25 +53,25 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'doums/darcula'
 Plug 'jaredgorski/spacecamp'
 
-
 Plug 'preservim/nerdtree'
+
 Plug 'ryanoasis/vim-devicons' " icons for NERDTree
+
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
+
+Plug 'junegunn/goyo.vim' "Removes Line numbers for focusing
 
 "To look into
 "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "Plug 'junegunn/fzf.vim' "Fuzzy find plugin
-Plug 'junegunn/goyo.vim' "Removes Line numbers for focusing
-
-
-
-
 
 call plug#end()
 
 
 
 
-" Select text color scheme from  those installed previously
+" Select text color scheme from those installed above
 colorscheme spacecamp
 
 
@@ -123,7 +123,7 @@ let g:colorizer_auto_filetype='*' " or 'css, html'
 let g:colorizer_colornames = 0
 
 "Preview markdown rendering in browser
-let g:mkdp_auto_start = 1
+"let g:mkdp_auto_start = 1
 
 
 "Vim-wiki settings
@@ -132,10 +132,15 @@ set nocompatible
 filetype plugin on
 syntax on
 
-"Use markdown syntax
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
+let wiki_1 = {}
+let wiki_1.path = '~/Documents/technical-notes/'
+let wiki_1.syntax = 'markdown'
+let wiki_1.ext = '.md'
 
+let g:vimwiki_list = [wiki_1]
+
+let g:vimwiki_global_ext=0 "Only use vimwiki inside of specified directories
 
 " Hotkeys
 
