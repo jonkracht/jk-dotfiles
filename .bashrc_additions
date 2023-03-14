@@ -1,3 +1,13 @@
+# Include into bashrc via
+#if [ -f ~/.bashrc_additions ]; then
+#    . ~/.bashrc_additions
+#fi
+
+# FZF key bindings and autcomplete
+# https://unix.stackexchange.com/questions/665689/fzf-ctlr-r-not-triggering-history-search-on-command-line
+source /usr/share/doc/fzf/examples/key-bindings.bash
+#source /usr/share/doc/fzf/examples/completion.bash
+
 # Edit terminal prompt
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 

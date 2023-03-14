@@ -74,9 +74,10 @@ call plug#end()
 " Select text color scheme from those installed above
 colorscheme spacecamp
 
-
 "Enable background transparency
 highlight Normal guibg=none
+highlight Normal ctermbg=none
+
 
 "Set region below text to be transparent (rather than a solid color)
 highlight EndOfBuffer guibg=none
@@ -115,6 +116,7 @@ let g:lightline = {
       \ 'colorscheme': 'Tomorrow_Night_Blue',
       \ }
 
+" Colorizer
 "Automatically load Colorizer for some or all filetypes
 "let g:colorizer_auto_color = 1
 let g:colorizer_auto_filetype='*' " or 'css, html'

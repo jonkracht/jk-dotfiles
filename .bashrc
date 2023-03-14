@@ -136,6 +136,3 @@ if [ -f ~/.bashrc_additions ]; then
     . ~/.bashrc_additions
 fi
 
-
-
-#eval "$(starship init bash)"
