@@ -19,7 +19,8 @@ theme.dir                                       = os.getenv("HOME") .. "/.config
 
 --Set wallpaper:  Can be absolute path, relative to theme.dir, or relative os.getenv("HOME")
 --theme.wallpaper = os.getenv("HOME") .. "/Pictures/wallpapers/canvas_by_roytanck.jpg"
-theme.wallpaper                                 = theme.dir .. "/wall.png"
+--theme.wallpaper                                 = theme.dir .. "/wall.png"
+theme.wallpaper                                 = os.getenv("wallpaper")
 
 theme.fontsize                                  = "14"
 

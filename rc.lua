@@ -101,7 +101,7 @@ local themes = {
 local chosen_theme = themes[11]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
-local terminal     = "kitty"
+local terminal     = "kitty -1"
 local vi_focus     = false -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 
@@ -546,7 +546,7 @@ globalkeys = mytable.join(
             {description = "Rhythmbox track info", group = "hotkeys"}),
 
     awful.key({ }, "XF86AudioPlay",
-        function () os.execute("rhythmbox-client --no-start --play-pause") end,
+        function () os.execute("rhythmbox-client --play-pause") end,
         {description = "Rhythmbox play/pause", group = "hotkeys"}),
 
     awful.key({ }, "XF86AudioPrev",
@@ -896,7 +896,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Compositor
 --awful.spawn.with_shell("pkill compton; compton")
-awful.util.spawn("picom --experimental-backends")
+awful.spawn.with_shell("picom --experimental-backends")
 
 
 -- NetworkManager applet
@@ -914,3 +914,6 @@ awful.spawn.with_shell("laptop-monitor-boot-setup.sh")
 
 -- Screensaver daemon
 awful.util.spawn("xscreensaver -nosplash")
+
+-- kitty daemon-like behavior
+awful.spawn.with_shell("kitty -1 --start-as minimized")
