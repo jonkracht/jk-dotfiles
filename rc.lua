@@ -916,4 +916,7 @@ awful.spawn.with_shell("laptop-monitor-boot-setup.sh")
 awful.util.spawn("xscreensaver -nosplash")
 
 -- kitty daemon-like behavior
-awful.spawn.with_shell("kitty -1 --start-as minimized")
+--awful.spawn.with_shell("kitty -1 --start-as minimized")
+
+-- Set brightness
+awful.spawn.with_shell("light -S 90")
