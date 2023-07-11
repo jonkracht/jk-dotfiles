@@ -898,7 +898,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 --awful.spawn.with_shell("pkill compton; compton")
 awful.spawn.with_shell("picom --experimental-backends")
 
-
 -- NetworkManager applet
 awful.util.spawn("nm-applet")
 
@@ -909,7 +908,7 @@ awful.util.spawn("blueman-applet")
 awful.spawn.with_shell("pkill pasystray; pasystray")  -- ensure only one instance
 --awful.util.spawn("pasystray")
 
--- Monitor configuration
+-- Configure displays (detects if second monitor is present)
 awful.spawn.with_shell("laptop-monitor-boot-setup.sh")
 
 -- Screensaver daemon
