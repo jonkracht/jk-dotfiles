@@ -25,7 +25,8 @@ export fileManager="nautilus"
 
 #export wallpaper="/home/jon/.config/awesome/themes/jk-copland/wall.png"
 #export wallpaper="/home/jon/repos/distrotube-wallpapers/0051.jpg"
-export wallpaper="/home/jon/repos/distrotube-wallpapers/0139.jpg"
+#export wallpaper="/home/jon/repos/distrotube-wallpapers/0139.jpg"
+export wallpaper="/usr/share/backgrounds/pop/nick-nazzaro-jungle-green.png"
 
 #export LockScreenCmd="i3lock --image=/mnt/1-tb-hd/art/paul-klee/Theater-Mountain-Construction-cropped.png --tiling --show-failed-attempts"
 export lockScreenCmd="i3lock --image=$wallpaper --tiling --show-failed-attempts"
