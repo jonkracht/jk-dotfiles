@@ -48,8 +48,12 @@ cmd open &{{
     esac
 }}
 
+#Unmap m
+map m
+
 # mkdir command. See wiki if you want it to select created dir
-map a :push %mkdir<space>
+map md :push %mkdir<space>
+map mf :push %touch<space>
 
 # define a custom 'rename' command without prompt for overwrite
 # cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
@@ -106,3 +110,17 @@ cmd zip ${{
     zip -r $1.zip $1
     rm -rf $1
 }}
+
+
+
+
+# Previewing
+
+# Following steps in the 'kitty' section of:
+#https://github.com/gokcehan/lf/wiki/Previews
+
+#set previewer ~/.config/lf/lf_kitty_preview
+#set cleaner ~/.config/lf/lf_kitty_clean
+
+set hidden true
+set icons true

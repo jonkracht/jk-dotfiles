@@ -4,7 +4,7 @@ set autoindent  "Copy indent from current line when starting a new line
 set clipboard+=unnamedplus       "Allow use of system clipboard
 set cursorcolumn        "Highlight column in which cursor is located
 set cursorline  "Highlight line (or row) on which cursor is located
-set expandtab   "Substitute Tab for a number of spaces; set with 'tabstop' parameter
+set expandtab   "Substitute Tab for a number of spaces; set via 'tabstop' parameter
 set hlsearch    "Highlight matches of last used search pattern
 set incsearch   "Display matches for search as you type
 set ignorecase  "Search case insensitively
@@ -21,6 +21,8 @@ set spell       " Enable spell check
 set splitbelow splitright       "Define behavior of new splits
 set tabstop=4
 set termguicolors
+set whichwrap+=<,h "Wrapping from beginning of line to previous line
+set whichwrap+=>,l "Wrapping from end of line to next line
 set wildmode=longest,list,full       "Enable auto-complete
 
 syntax enable

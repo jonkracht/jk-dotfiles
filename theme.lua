@@ -25,7 +25,8 @@ theme.wallpaper                                 = os.getenv("wallpaper")
 theme.fontsize                                  = "14"
 
 --theme.fontface                                  = os.getenv("FONT")
-theme.fontface                                  = "JetBrainsMono Nerd Font"
+--theme.fontface                                  = "JetBrainsMono Nerd Font"
+theme.fontface = "CaskaydiaCove Nerd Font"
 
 theme.font                                      = theme.fontface .. " " .. theme.fontsize
 --theme.font = "Courier 10 Pitch Bold 12"

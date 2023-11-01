@@ -5,8 +5,8 @@
 alias sudo='sudo '
 
 ## ls/exa aliases ##
-#alias l='ls -halF --color=auto'
-alias l='exa --long --all --icons --color=always --group-directories-first'
+alias l='ls -halF --color=auto'
+#alias l='exa --long --all --icons --color=always --group-directories-first'
 
 # Prints number of files in directory
 alias n='ls | wc -l'
