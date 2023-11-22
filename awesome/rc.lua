@@ -111,7 +111,10 @@ local cycle_prev   = true  -- cycle with only the previously focused client or a
 -- Define system software
 local editor       = os.getenv("editor") or "gedit"
 local browser      = os.getenv("browser")
-local fileManager  = os.getenv("fileManager")
+
+--local fileManager  = os.getenv("fileManager")
+local fileManager  = "kitty lf"
+
 local scrlocker     = os.getenv("lockScreenCmd")
 local screenshot = "flameshot gui"
 
@@ -899,7 +902,8 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Compositor
 --awful.spawn.with_shell("pkill compton; compton")
-awful.spawn.with_shell("picom --experimental-backends")
+--awful.spawn.with_shell("picom --experimental-backends")
+awful.spawn.with_shell("picom -b")
 
 -- NetworkManager applet
 awful.util.spawn("nm-applet")

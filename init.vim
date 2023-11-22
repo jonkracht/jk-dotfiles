@@ -73,7 +73,7 @@ call plug#end()
 
 
 
-" Select text color scheme from those installed above
+" Set text color scheme from those installed above
 colorscheme spacecamp
 
 "Enable background transparency

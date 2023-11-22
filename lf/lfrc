@@ -34,8 +34,8 @@ map x $$f
 map X !$f
 
 # dedicated keys for file opener actions
-map o &mimeopen $f
-map O $mimeopen --ask $f
+#map o &mimeopen $f
+#map O $mimeopen --ask $f
 
 # define a custom 'open' command
 # This command is called when current file is not a directory. You may want to
@@ -44,9 +44,13 @@ map O $mimeopen --ask $f
 cmd open &{{
     case $(file --mime-type -Lb $f) in
         text/*) lf -remote "send $id \$$EDITOR \$fx";;
+        application/pdf) zathura "$f";;
+        image/*) eog "$f";;
         *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 }}
+
+map o open
 
 #Unmap m
 map m
@@ -119,8 +123,12 @@ cmd zip ${{
 # Following steps in the 'kitty' section of:
 #https://github.com/gokcehan/lf/wiki/Previews
 
-#set previewer ~/.config/lf/lf_kitty_preview
-#set cleaner ~/.config/lf/lf_kitty_clean
+set previewer ~/.config/lf/lf_kitty_preview
+set cleaner ~/.config/lf/lf_kitty_clean
 
-set hidden true
-set icons true
+set hidden true # show hidden files
+set icons true # show icons
+set incfilter true # apply filter after each character
+set ignorecase true # ignore case in sorting and search
+set dirfirst true # display folders before other files
+set dirpreviews true
