@@ -162,4 +162,4 @@ symbol = "ﯣ "
 
 # JK additions
 [line_break]
-disabled = false # user/machine from prompt by new line
+disabled = false # make prompt a single line (i.e. no line break)

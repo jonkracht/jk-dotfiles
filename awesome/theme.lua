@@ -133,14 +133,16 @@ local markup = lain.util.markup
 
 -- Textclock
 --os.setlocale(os.getenv("LANG")) -- to localize the clock
-local mytextclock = wibox.widget.textclock("<span font='Terminus 5'> </span>%H:%M ")
+local mytextclock = wibox.widget.textclock("<span font='$FONT 5'> </span>%H:%M ")
 mytextclock.font = theme.font
 
 -- Calendar
 theme.cal = lain.widget.cal({
+    week_start = 1, -- set day in left-most column
     attach_to = { mytextclock },
     notification_preset = {
-        font = "$FONT 11",
+        --font = "$FONT 11",
+        font = "CaskaydiaCove Nerd Font 14", -- must be monospaced for proper column alignment
         fg   = theme.fg_normal,
         bg   = theme.bg_normal
     }
@@ -213,7 +215,8 @@ local batupd = lain.widget.bat({
         if bat_now.status == "Charging" then
             baticon:set_image(theme.ac)
             if bat_now.perc >= 98 then
-                batbar:set_color(green)
+                --batbar:set_color(green)
+                batbar:set_color(theme.fg_normal)
             elseif bat_now.perc > 50 then
                 batbar:set_color(theme.fg_normal)
             elseif bat_now.perc > 15 then
@@ -223,7 +226,8 @@ local batupd = lain.widget.bat({
             end
         else
             if bat_now.perc >= 98 then
-                batbar:set_color(green)
+                --batbar:set_color(green)
+                batbar:set_color(theme.fg_normal)
             elseif bat_now.perc > 50 then
                 batbar:set_color(theme.fg_normal)
                 baticon:set_image(theme.bat)
@@ -396,11 +400,14 @@ function theme.at_screen_connect(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
-            small_spr,
+            --small_spr,
+            spr,
+            spr,
+            spr,
             --theme.mail.widget,
             --mpdicon,
             --theme.mpd.widget,
-            bar_spr,
+            --bar_spr,
             baticon,
             batwidget,
             --bar_spr,

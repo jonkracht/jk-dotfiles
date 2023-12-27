@@ -122,7 +122,8 @@ local volctl        = "pavucontrol"
 
 awful.util.terminal = terminal
 
-awful.util.tagnames = { "1", "2", "3", "4", "5", "6", "7", "8" }
+--awful.util.tagnames = { "1", "2", "3", "4", "5", "6", "7", "8" }
+awful.util.tagnames = { "\xF0\x9F\x8C\x88", "\xF0\x9F\x9A\x80", "3", "4", "5", "6", "7", "\xF0\x9F\x8E\xB5" }
 
 awful.layout.layouts = {
     --awful.layout.suit.floating,
@@ -591,20 +592,19 @@ globalkeys = mytable.join(
     --]]
 
     --dmenu
-    --[[awful.key({ modkey }, "z", function ()
+    awful.key({ modkey }, "z", function ()
             os.execute(string.format("dmenu_run %s -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
             os.getenv("dmenu_flags"), beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
         end,
         {description = "dmenu_run", group = "launcher"}),
-    --]]
 
     
-    awful.key({ modkey }, "z", function ()
+    --[[awful.key({ modkey }, "z", function ()
             os.execute(string.format("dmenu_run -i -fn 'JetBrainsMono Nerd Font' -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
             beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
         end,
         {description = "dmenu_run", group = "launcher"}),
-
+    --]]
 
     -- alternatively use rofi, a dmenu-like application with more features
     -- check https://github.com/DaveDavenport/rofi for more details
@@ -926,3 +926,8 @@ awful.util.spawn("xscreensaver -nosplash")
 
 -- Set brightness
 awful.spawn.with_shell("light -S 90")
+
+-- Spawn rhythmbox on last tag
+awful.spawn("rhythmbox", {
+    tag = "8",
+})

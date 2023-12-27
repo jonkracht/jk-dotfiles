@@ -31,7 +31,8 @@ export fileManager="nautilus"
 #export wallpaper="/home/jon/.config/awesome/themes/jk-copland/wall.png"
 #export wallpaper="/home/jon/repos/distrotube-wallpapers/0051.jpg"
 #export wallpaper="/home/jon/repos/distrotube-wallpapers/0139.jpg"
-export wallpaper="/home/jon/repos/distrotube-wallpapers/0271.jpg"
+export wallpaper="/home/jon/repos/distrotube-wallpapers/0117.jpg"
+#export wallpaper="/home/jon/repos/distrotube-wallpapers/0271.jpg"
 #export wallpaper="/usr/share/backgrounds/pop/nick-nazzaro-jungle-green.png"
 #export wallpaper="/usr/share/backgrounds/pop/nick-nazzaro-space-blue.png"
 
@@ -47,8 +48,8 @@ export lockScreenCmd="i3lock --image=$wallpaper --tiling --show-failed-attempts"
 export editor="nvim"
 export EDITOR="nvim" # for lf open command
 
-#export browser="brave-browser"
-export browser="thorium-browser"
+export browser="brave-browser"
+#export browser="thorium-browser"
 
 
 
