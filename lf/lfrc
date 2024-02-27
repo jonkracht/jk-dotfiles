@@ -132,3 +132,7 @@ set incfilter true # apply filter after each character
 set ignorecase true # ignore case in sorting and search
 set dirfirst true # display folders before other files
 set dirpreviews true
+
+
+# Navigation
+map gx cd /mnt/1-tb-hd
