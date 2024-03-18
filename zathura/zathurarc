@@ -1,16 +1,40 @@
 # zathurarc
+#
+# Documentation at https://pwmt.org/projects/zathura/documentation/
+# Also man zathurarc
 
-# colors
-set statusbar-bg "#00FF00"
-set statusbar-fg red
+# Font
+set font "Courier 18"
+# Try to pull this from environment variable
+
+# Status bar
+set statusbar-bg "#FFFFFF" # light purple
+set statusbar-fg "#000000"
+
+# Highlighting
+set highlight-color "#FFFDD0"
+set highlight-active-color "#FFEA00"
+
+set highlight-transparency 0.50
 
 # settings
-set window-height 1024
-set window-width 768
-set adjust-open width
+#set window-height 1024
+#set window-width 768
 
-# use sqlite as bookmarks database backend
-set database sqlite
+set adjust-open "best-fit" # options:  best-fit, width
+
+# Database backend
+set database plain # options:  sqlite, plain
+
+# Options:  c is commandline, s is statusbar, h/v for horizontal/vertical scrollbars
+set guioptions none
+
+# Input bar
+set inputbar-bg "#000000"
+set inputbar-fg "#FFFFFF"
+
+
+set dbus-service false
 
 # key bindings
 map <PageUp> navigate previous
@@ -22,6 +46,7 @@ map - zoom out
 map <C-q> quit
 
 
-#set guipoptions none
 
 #map b adjust window best-fit
+#
+

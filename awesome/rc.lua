@@ -819,6 +819,10 @@ awful.rules.rules = {
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
+
+    { rule = { instance  = "rhythmbox" },
+    properties = { screen = 2, tag = "6" } },
+
 }
 
 -- }}}
@@ -912,8 +916,8 @@ awful.util.spawn("nm-applet")
 awful.util.spawn("blueman-applet")
 
 -- Pulse audio system tray
-awful.spawn.with_shell("pkill pasystray; pasystray")  -- ensure only one instance
---awful.util.spawn("pasystray")
+--awful.spawn.with_shell("pkill pasystray; pasystray")  -- ensure only one instance
+awful.spawn.single_instance("pasystray")
 
 -- Configure displays (detects if second monitor is present)
 awful.spawn.with_shell("laptop-monitor-boot-setup.sh")
@@ -928,6 +932,5 @@ awful.util.spawn("xscreensaver -nosplash")
 awful.spawn.with_shell("light -S 90")
 
 -- Spawn rhythmbox on last tag
-awful.spawn("rhythmbox", {
-    tag = "8",
-})
+awful.spawn("rhythmbox")
+
