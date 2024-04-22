@@ -122,8 +122,7 @@ local volctl        = "pavucontrol"
 
 awful.util.terminal = terminal
 
---awful.util.tagnames = { "1", "2", "3", "4", "5", "6", "7", "8" }
-awful.util.tagnames = { "\xF0\x9F\x8C\x88", "\xF0\x9F\x9A\x80", "3", "4", "5", "6", "7", "\xF0\x9F\x8E\xB5" }
+awful.util.tagnames = { "1", "2", "3", "4", "5", "6", "7", "8" }
 
 awful.layout.layouts = {
     --awful.layout.suit.floating,
@@ -578,7 +577,7 @@ globalkeys = mytable.join(
     awful.key({ modkey }, "b", function () awful.spawn(browser) end,
               {description = "Browser", group = "launcher"}),
 
-    awful.key({ modkey }, "a", function () awful.spawn(fileManager) end,
+    awful.key({ modkey, "Shift" }, "Return", function () awful.spawn("nautilus") end,
                 {description = "Graphical file manager", group = "launcher"}),
 
     awful.key({ modkey, "Shift" }, "p", function () awful.spawn.with_shell("jk-power.sh") end,

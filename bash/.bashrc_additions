@@ -19,3 +19,4 @@ export MANPAGER="nvim +Man!"
 
 # Use starship prompt
 eval "$(starship init bash)"
+eval "$(zoxide init bash)"
