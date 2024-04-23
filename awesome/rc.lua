@@ -580,6 +580,9 @@ globalkeys = mytable.join(
     awful.key({ modkey, "Shift" }, "Return", function () awful.spawn("nautilus") end,
                 {description = "Graphical file manager", group = "launcher"}),
 
+    awful.key({ modkey }, "a", function () awful.spawn(fileManager) end,
+                {description = "Graphical file manager", group = "launcher"}),
+
     awful.key({ modkey, "Shift" }, "p", function () awful.spawn.with_shell("jk-power.sh") end,
                 {description = "Power menu", group = "launcher"}),
 
@@ -916,7 +919,8 @@ awful.util.spawn("blueman-applet")
 
 -- Pulse audio system tray
 --awful.spawn.with_shell("pkill pasystray; pasystray")  -- ensure only one instance
-awful.spawn.single_instance("pasystray")
+--awful.spawn.single_instance("pasystray")
+awful.spawn.once('pasystray', {}, function(c) return awful.rules.match(c, { instance = "pasystray", class = "pasystray"}) end)
 
 -- Configure displays (detects if second monitor is present)
 awful.spawn.with_shell("laptop-monitor-boot-setup.sh")
@@ -930,6 +934,6 @@ awful.util.spawn("xscreensaver -nosplash")
 -- Set brightness
 awful.spawn.with_shell("light -S 90")
 
--- Spawn rhythmbox on last tag
+-- Spawn rhythmbox
 awful.spawn("rhythmbox")
 

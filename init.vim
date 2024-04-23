@@ -51,7 +51,7 @@ Plug 'dracula/vim'
 Plug 'morhetz/gruvbox'
 Plug 'Rigellute/rigel'
 Plug 'arcticicestudio/nord-vim'
-Plug 'tomasiser/vim-code-dark'
+Plug 'tomasiser/vim-code-dark' " called codedark
 Plug 'doums/darcula'
 Plug 'jaredgorski/spacecamp'
 
@@ -74,7 +74,7 @@ call plug#end()
 
 
 " Set text color scheme from those installed above
-colorscheme spacecamp
+colorscheme codedark
 
 "Enable background transparency
 highlight Normal guibg=none
