@@ -16,6 +16,11 @@ source /usr/share/doc/fzf/examples/key-bindings.bash
 #export MANPAGER="less"
 export MANPAGER="nvim +Man!"
 
+# Add locations to PATH
+export PATH="/home/jon/scripts:$PATH"
+export PATH="/home/jon/.local/projectMSDL:$PATH"
+
+
 
 # Use starship prompt
 eval "$(starship init bash)"

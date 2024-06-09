@@ -19,7 +19,6 @@ theme.dir                                       = os.getenv("HOME") .. "/.config
 
 --Set wallpaper:  Can be absolute path, relative to theme.dir, or relative os.getenv("HOME")
 --theme.wallpaper = os.getenv("HOME") .. "/Pictures/wallpapers/canvas_by_roytanck.jpg"
---theme.wallpaper                                 = theme.dir .. "/wall.png"
 theme.wallpaper                                 = os.getenv("wallpaper")
 
 theme.fontsize                                  = "14"
@@ -297,6 +296,22 @@ theme.volume = lain.widget.alsabar {
         unmute       = theme.fg_normal
     }
 }
+
+-- Custom icon template  https://www.reddit.com/r/awesomewm/comments/kq79jn/awesomewm_icons_made_easy/
+theme.icon_size = 12
+theme.icon_font = "Font Awesome 5 Free-Solid-900 " -- attention to space at the end!
+theme.icon_color = "#587D8D"
+
+
+local facpuicon = wibox.widget{
+    markup = ' <span color="'.. theme.icon_color ..'">\u{f2db}</span> ',
+    align  = 'center',
+    valign = 'center',
+    widget = wibox.widget.textbox
+}
+facpuicon.font = theme.icon_font .. theme.icon_size
+
+
 theme.volume.tooltip.wibox.fg = theme.fg_focus
 theme.volume.bar:buttons(my_table.join (
           awful.button({}, 1, function()

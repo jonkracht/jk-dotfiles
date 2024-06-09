@@ -593,14 +593,23 @@ globalkeys = mytable.join(
               {description = "show the menubar", group = "launcher"}),
     --]]
 
+    -- Launchers
+
     --dmenu
+    --[[
     awful.key({ modkey }, "z", function ()
             os.execute(string.format("dmenu_run %s -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
             os.getenv("dmenu_flags"), beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
         end,
         {description = "dmenu_run", group = "launcher"}),
+    --]]
 
-    
+    -- rofi
+    awful.key({ modkey }, "z", function ()
+            os.execute(string.format("rofi -show run"))
+        end,
+        {description = "rofi", group = "launcher"}),
+
     --[[awful.key({ modkey }, "z", function ()
             os.execute(string.format("dmenu_run -i -fn 'JetBrainsMono Nerd Font' -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
             beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
@@ -821,9 +830,10 @@ awful.rules.rules = {
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
-
-    { rule = { instance  = "rhythmbox" },
-    properties = { screen = 2, tag = "6" } },
+    
+    -- Spawn on specific screen/tag
+    --{ rule = { instance  = "rhythmbox" },
+    --properties = { screen = 2, tag = "6" } },
 
 }
 
@@ -918,9 +928,9 @@ awful.util.spawn("nm-applet")
 awful.util.spawn("blueman-applet")
 
 -- Pulse audio system tray
---awful.spawn.with_shell("pkill pasystray; pasystray")  -- ensure only one instance
+awful.spawn.with_shell("pkill pasystray; pasystray")  -- ensure only one instance
 --awful.spawn.single_instance("pasystray")
-awful.spawn.once('pasystray', {}, function(c) return awful.rules.match(c, { instance = "pasystray", class = "pasystray"}) end)
+--awful.spawn.once('pasystray', {}, function(c) return awful.rules.match(c, { instance = "pasystray", class = "pasystray"}) end)
 
 -- Configure displays (detects if second monitor is present)
 awful.spawn.with_shell("laptop-monitor-boot-setup.sh")
@@ -935,5 +945,5 @@ awful.util.spawn("xscreensaver -nosplash")
 awful.spawn.with_shell("light -S 90")
 
 -- Spawn rhythmbox
-awful.spawn("rhythmbox")
+--awful.spawn("rhythmbox")
 

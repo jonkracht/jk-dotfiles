@@ -4,14 +4,11 @@
 # Also man zathurarc
 
 # Font
-set font "Courier 18"
+set font "Courier 14"
 # Try to pull this from environment variable
 
-# Status bar
-set statusbar-bg "#FFFFFF" # light purple
-set statusbar-fg "#000000"
 
-# Highlighting
+# Highlighting (such as search results)
 set highlight-color "#FFFDD0"
 set highlight-active-color "#FFEA00"
 
@@ -27,7 +24,20 @@ set adjust-open "best-fit" # options:  best-fit, width
 set database plain # options:  sqlite, plain
 
 # Options:  c is commandline, s is statusbar, h/v for horizontal/vertical scrollbars
-set guioptions none
+set guioptions s
+
+
+# Status bar
+#set statusbar-bg "#FFFFFF"
+set statusbar-bg "#CBC3E3" # light purple
+
+set statusbar-fg "#000000"
+
+set statusbar-v-padding 20
+set statusbar-h-padding 50
+
+# Display file name rather than full path
+set statusbar-basename true
 
 # Input bar
 set inputbar-bg "#000000"
@@ -35,6 +45,11 @@ set inputbar-fg "#FFFFFF"
 
 
 set dbus-service false
+
+
+# Page numbering
+set window-title-page true
+
 
 # key bindings
 map <PageUp> navigate previous
@@ -50,3 +65,5 @@ map <C-q> quit
 #map b adjust window best-fit
 #
 
+set window-home-tilde true
+set window-title-home-tilde true

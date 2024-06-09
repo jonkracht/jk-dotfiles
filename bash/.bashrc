@@ -121,7 +121,6 @@ fi
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
 
-export PATH="/home/jon/scripts:$PATH"
 
 
 # Run neofetch (to display system info) when terminal first opens

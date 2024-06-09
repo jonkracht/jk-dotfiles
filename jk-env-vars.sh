@@ -13,7 +13,8 @@
 #export FONT="Courier"
 #export FONT="JetBrainsMonoNLNerdFont-Regular"
 #export FONT="JetBrainsMonoNLNerdFontCom-Bold"
-export FONT="CaskaydiaCoveNerdFont-Regular"
+#export FONT="CaskaydiaCoveNerdFont-Regular"
+export FONT="RobotoMonoNerdFont-Regular"
 
 #export KITTY_CONF_FONT='Courier10PitchBT-Roman'
 
@@ -31,12 +32,10 @@ export fileManager="nautilus"
 #export wallpaper="/home/jon/.config/awesome/themes/jk-copland/wall.png"
 #export wallpaper="/home/jon/repos/distrotube-wallpapers/0051.jpg"
 #export wallpaper="/home/jon/repos/distrotube-wallpapers/0139.jpg"
-#export wallpaper="/home/jon/repos/distrotube-wallpapers/0090.jpg"
-#export wallpaper="/home/jon/repos/distrotube-wallpapers/0117.jpg"
 #export wallpaper="/home/jon/repos/distrotube-wallpapers/0271.jpg"
 #export wallpaper="/usr/share/backgrounds/pop/nick-nazzaro-jungle-green.png"
 #export wallpaper="/usr/share/backgrounds/pop/nick-nazzaro-space-blue.png"
-export wallpaper="/home/jon/Pictures/wallpapers/canvas_by_roytanck.jpg"
+export wallpaper="/home/jon/Pictures/wallpapers/roy-tanck-wallpapers/wallpaper (11).png"
 
 
 #export lockScreenCmd="i3lock --image=/mnt/1-tb-hd/art/paul-klee/Theater-Mountain-Construction-cropped.png --tiling --show-failed-attempts"
