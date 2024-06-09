@@ -5,7 +5,7 @@
 
 # FZF key bindings and autcomplete
 # https://unix.stackexchange.com/questions/665689/fzf-ctlr-r-not-triggering-history-search-on-command-line
-source /usr/share/doc/fzf/examples/key-bindings.bash
+#source /usr/share/doc/fzf/examples/key-bindings.bash
 #source /usr/share/doc/fzf/examples/completion.bash
 
 # Edit terminal prompt

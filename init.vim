@@ -9,6 +9,7 @@ set hlsearch    "Highlight matches of last used search pattern
 set incsearch   "Display matches for search as you type
 set ignorecase  "Search case insensitively
 set mouse=a "Enable mouse in all vim modes
+set nofoldenable " disable folding
 set noswapfile
 set number relativenumber       "Display line number
 set ruler       "Show line/column number of cursor position at bottom right
