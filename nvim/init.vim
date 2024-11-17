@@ -1,10 +1,10 @@
 "Options - complete list at https://neovim.io/doc/user/options.html
 
-set autoindent  "Copy indent from current line when starting a new line
+set autoindent  "Copy indent from current line when creating a new line
 set clipboard+=unnamedplus       "Allow use of system clipboard
 set cursorcolumn        "Highlight column in which cursor is located
 set cursorline  "Highlight line (or row) on which cursor is located
-set expandtab   "Substitute Tab for a number of spaces; set via 'tabstop' parameter
+set expandtab   "Replaces tab character with number of spaces set by 'tabstop' parameter
 set hlsearch    "Highlight matches of last used search pattern
 set incsearch   "Display matches for search as you type
 set ignorecase  "Search case insensitively

@@ -21,3 +21,4 @@ Repo of configuration files curated originally on a Ubuntu 20.04 system then por
 | rc.lua             | [awesomewm](https://awesomewm.org/)          | Main config (autostart, keybindings, layouts, etc.)                                                                          |         `~/.config/awesome/`         |
 | starship.toml      | Starship terminal prompt                     | Main config                                                                                                                  |               `$HOME`                |
 | theme.lua          | [awesomewm](https://awesomewm.org/)          | coSupplemental config containing mainly styling (colors, fonts, etc.)                                                          |         `~/.config/awesome/`         |
+| zathurarc          | zathura https://pwmt.org/projects/zathura/ | Docoument viewer | `~/.config/zathura/` |

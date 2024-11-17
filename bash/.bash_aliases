@@ -7,13 +7,14 @@ alias sudo='sudo '
 ## ls/exa aliases ##
 alias l='ls -halF --color=auto'
 #alias l='exa --long --all --icons --color=always --group-directories-first'
+#alias l='eza '
 
 # Prints number of files in directory
 alias n='ls | wc -l'
 
 ## Navigation ##
 alias ..='cd ..'
-alias hd='cd /mnt/1-tb-hd/'
+#alias hd='cd /mnt/1-tb-hd/'
 
 
 ## Launch

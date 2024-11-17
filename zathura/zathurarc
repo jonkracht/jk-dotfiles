@@ -2,10 +2,9 @@
 #
 # Documentation at https://pwmt.org/projects/zathura/documentation/
 # Also man zathurarc
-
-# Font
-set font "Courier 14"
-# Try to pull this from environment variable
+# Also arch wiki https://wiki.archlinux.org/title/zathura
+# Font  (Maybe pull from environment variable)
+set font "CaskaydiaCove Nerd Font 14"
 
 
 # Highlighting (such as search results)
@@ -23,8 +22,9 @@ set adjust-open "best-fit" # options:  best-fit, width
 # Database backend
 set database plain # options:  sqlite, plain
 
-# Options:  c is commandline, s is statusbar, h/v for horizontal/vertical scrollbars
-set guioptions s
+# Options:  c is commandline, s is statusbar, h/v for horizontal/vertical scrollbars; none to disable all
+set guioptions none
+
 
 
 # Status bar
@@ -65,5 +65,8 @@ map <C-q> quit
 #map b adjust window best-fit
 #
 
-set window-home-tilde true
+#set window-home-tilde true
 set window-title-home-tilde true
+
+# Clipboard
+set selection-clipboard clipboard
