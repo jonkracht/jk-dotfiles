@@ -12,7 +12,7 @@ preview() {
 
 TEMPDIR=~/.cache
 
-case "$(file -bL --mime-type "$filename")" in
+case "$(file --brief --dereference --mime-type "$filename")" in
 text/*)
     batcat --force-colorization --paging=never --style=changes,numbers \
         --terminal-width $(($w-3)) "$filename" && false
