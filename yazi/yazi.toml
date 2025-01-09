@@ -139,7 +139,7 @@ cd_origin = "top-center"
 cd_offset = [ 0, 2, 50, 3 ]
 
 # create
-create_title  = [ "Create:", "Create (dir):" ]
+create_title  = "Create:"
 create_origin = "top-center"
 create_offset = [ 0, 2, 50, 3 ]
 
@@ -191,7 +191,7 @@ quit_content = "The following task is still running, are you sure you want to qu
 quit_origin  = "center"
 quit_offset  = [ 0, 0, 50, 15 ]
 
-[pick]
+[select]
 open_title  = "Open with:"
 open_origin = "hovered"
 open_offset = [ 0, 1, 50, 7 ]

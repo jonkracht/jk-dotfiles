@@ -77,9 +77,9 @@ permissions_s = { fg = "darkgray" }
 # : }}}
 
 
-# : Pick {{{
+# : Select {{{
 
-[pick]
+[select]
 border   = { fg = "blue" }
 active   = { fg = "magenta", bold = true }
 inactive = {}
@@ -94,20 +94,6 @@ border   = { fg = "blue" }
 title    = {}
 value    = {}
 selected = { reversed = true }
-
-# : }}}
-
-
-# : Confirm {{{
-
-[confirm]
-border     = { fg = "blue" }
-title      = { fg = "blue" }
-content    = {}
-list       = {}
-btn_yes    = { reversed = true }
-btn_no     = {}
-btn_labels = [ "  [Y]es  ", "  (N)o  " ]
 
 # : }}}
 
