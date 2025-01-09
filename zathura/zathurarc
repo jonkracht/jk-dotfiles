@@ -3,8 +3,16 @@
 # Documentation at https://pwmt.org/projects/zathura/documentation/
 # Also man zathurarc
 # Also arch wiki https://wiki.archlinux.org/title/zathura
-# Font  (Maybe pull from environment variable)
-set font "CaskaydiaCove Nerd Font 14"
+
+
+# Font  (try pulling from environment variable)
+#set font "CaskaydiaCove Nerd Font 14"
+set font "Arial 10" # 
+# TODO use Ubuntu system font
+
+
+
+
 
 
 # Highlighting (such as search results)

@@ -55,6 +55,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'tomasiser/vim-code-dark' " called codedark
 Plug 'doums/darcula'
 Plug 'jaredgorski/spacecamp'
+Plug 'rose-pine/neovim'
 
 Plug 'preservim/nerdtree'
 
@@ -75,7 +76,7 @@ call plug#end()
 
 
 " Set text color scheme from those installed above
-colorscheme codedark
+colorscheme rose-pine-moon
 
 "Enable background transparency
 highlight Normal guibg=none
@@ -108,7 +109,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 " Remap ESC to ii
-" (now unneeded after remapping keyboard CAPS to ESC by editting /etc/default/keyboard)
+" Unneeded after remapping keyboard CAPS LOCK to ESC by editting /etc/default/keyboard)
 ":imap ii <Esc>
 
 
@@ -163,3 +164,11 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+
+" Commenting
+"insert and remove comments in visual and normal mode
+vmap ,ic :s/^/#/g<CR>:let @/ = ""<CR>
+map  ,ic :s/^/#/g<CR>:let @/ = ""<CR>
+vmap ,rc :s/^#//g<CR>:let @/ = ""<CR>
+map  ,rc :s/^#//g<CR>:let @/ = ""<CR>
