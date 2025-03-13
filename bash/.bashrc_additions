@@ -33,3 +33,4 @@ export EZA_ICON_SPACING=2
 # Use starship prompt
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
+eval "$(pip completion --bash)"  # enable pip command completions
