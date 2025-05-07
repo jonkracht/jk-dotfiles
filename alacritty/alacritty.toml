@@ -1,0 +1,60 @@
+# List of config options at https://alacritty.org/config-alacritty.html
+
+import = ["/home/jon/.config/alacritty/themes/themes/tokyo-night-storm.yaml"]
+
+# Fonts
+
+[font]
+size = 12
+
+[font.bold]
+family = "CaskaydiaCove Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "CaskaydiaCove Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "CaskaydiaCove Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "CaskaydiaCove Nerd Font"
+style = "Regular"
+
+
+
+
+
+[[keyboard.bindings]]
+action = "CreateNewWindow"
+key = "Return"
+mods = "Super|Shift"
+
+[[keyboard.bindings]]
+action = "ScrollLineUp"
+key = "Up"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ScrollLineDown"
+key = "Down"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Quit"
+key = "q"
+mods = "Control|Shift"
+
+
+
+[window]
+opacity = 0.75
+decorations = "None"
+blur = true
+
+[window.padding]
+x = 15
+y = 15
+

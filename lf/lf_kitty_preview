@@ -12,7 +12,7 @@ preview() {
 
 TEMPDIR=~/.cache
 
-case "$(file -bL --mime-type "$filename")" in
+case "$(file --brief --dereference --mime-type "$filename")" in
 text/*)
     batcat --force-colorization --paging=never --style=changes,numbers \
         --terminal-width $(($w-3)) "$filename" && false
@@ -26,8 +26,13 @@ application/pdf)
     preview "$thumbnail"
 	;;
 video/*)
-	thumbnail="$TEMPDIR/thumbnail.png"
-	ffmpeg -y -i "$filename" -vframes 1 "$thumbnail"
+	# FFMPEG IMPLEMENTATION
+    #thumbnail="$TEMPDIR/thumbnail.png"
+    #ffmpeg -y -i "$filename" -ss 00:01:00 -frames:v 1 "$thumbnail" -s 0 -q 5
+    
+    # MTN IMPLEMENTATION
+    thumbnail="$TEMPDIR/thumbnail.jpg"
+    mtn "$filename" -c 3 -r 3 -O "$TEMPDIR" -x thumbnail -o .jpg -g 20 -F 000000:30 -f /usr/local/share/fonts/CaskaydiaCoveNerdFont/CaskaydiaCoveNerdFontMono-Regular.ttf --shadow=5 -w 2048
     preview "$thumbnail"
 	;;
 font/*)

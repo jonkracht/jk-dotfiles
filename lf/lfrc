@@ -36,23 +36,26 @@ map X !$f
 
 # Opening files
 
-## Use mimeopen
+## Using mimeopen
 #map o &mimeopen $f
 #map O $mimeopen --ask $f
 
-# Custom 'open' command for each mimetype
+## Using mimetype to determine appropriate program
 cmd open &{{
     case $(file --mime-type -Lb $f) in
         text/*) lf -remote "send $id \$$EDITOR \$fx";;
         application/pdf) zathura "$f";;
         image/*) eog "$f";;
+        video/*) vlc "$f";;
         *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 }}
+
 map o open
 
 
-#Unmap m
+# Unmap m 
+# By default, bound to 'mark-save' commmand which saves current directory as a bookmark assigned to the given key
 map m
 
 
@@ -88,6 +91,7 @@ cmd editPermissions ${{
 
     chmod $ans $fx
 }}
+
 map mp editPermissions
 
 
@@ -100,7 +104,11 @@ map mp editPermissions
 
 
 
+<<<<<<< HEAD
 ## Trash/deletion
+=======
+# Deletion/trash
+>>>>>>> 99f61b2543ed895b4fae97a9c149b31b3202fca7
 
 # make sure trash folder exists
 # %mkdir -p ~/.trash
@@ -119,7 +127,11 @@ map mp editPermissions
 #}}
 #
 
+<<<<<<< HEAD
 
+=======
+## Use trash-cli; default location is ~/.local/share/Trash/files
+>>>>>>> 99f61b2543ed895b4fae97a9c149b31b3202fca7
 cmd trash %{{
     printf "Trash '%s'? [y/n] " "$f"
     read -r ans
@@ -129,6 +141,7 @@ cmd trash %{{
         echo "aborting"
     fi
 }}
+<<<<<<< HEAD
 # use '<delete>' key for either 'trash' or 'delete' command
  map <delete> trash
 # map <delete> delete
@@ -137,6 +150,17 @@ cmd trash %{{
 # Extraction
 
 # extract the current file with the right command
+=======
+
+# use '<delete>' key for either 'trash' or 'delete' command
+map <delete> trash
+# map <delete> delete
+
+
+
+# Extraction
+
+>>>>>>> 99f61b2543ed895b4fae97a9c149b31b3202fca7
 # (xkcd link: https://xkcd.com/1168/)
 cmd extract ${{
     set -f
@@ -150,7 +174,11 @@ cmd extract ${{
     esac
 }}
 
-# compress current file or selected files with tar and gunzip
+map ex extract
+
+# Compression
+
+## Using tar and gunzip
 cmd tar ${{
     set -f
     mkdir $1
@@ -159,7 +187,7 @@ cmd tar ${{
     rm -rf $1
 }}
 
-# compress current file or selected files with zip
+## Using zip
 cmd zip ${{
     set -f
     mkdir $1
@@ -181,13 +209,17 @@ set cleaner ~/.config/lf/lf_kitty_clean
 
 
 # Options
+set dirfirst true # display folders before other files
+set dirpreviews true
+set drawbox # column borders
 set hidden true # show hidden files
 set icons true # show icons
 set incfilter true # apply filter after each character
 set ignorecase true # ignore case in sorting and search
-set dirfirst true # display folders before other files
-set dirpreviews true
+set mouse true # mouse usage enabled
 
 
 # Navigation
-map gx cd /mnt/1-tb-hd
+map gn cd ~/repos/technical-notes
+map go cd ~/Documents/organ
+map gr cd ~/repos

@@ -17,10 +17,18 @@
 export MANPAGER="nvim +Man!"
 
 # Add locations to PATH
-export PATH="/home/jon/scripts:$PATH"
-export PATH="/home/jon/.local/projectMSDL:$PATH"
+export PATH="~/repos/scripts:$PATH"
+export PATH="~/.local/projectMSDL:$PATH"
+export PATH="~/.local/bin:$PATH "
 
+# Create environment variable setting ls output theme; lf inherits it
+# https://github.com/sharkdp/vivid/tree/master/themes
+# Some options:  catppuccin-mocha, iceberg-dark, jellybeans, rose-pine-moon, one-dark, dracula
+export LS_COLORS="$(vivid generate rose-pine-moon)"
 
+# Help eza locate config file
+export EZA_CONFIG_DIR="/home/jon/.config/eza"
+export EZA_ICON_SPACING=2
 
 # Use starship prompt
 eval "$(starship init bash)"

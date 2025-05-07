@@ -14,5 +14,5 @@ export PATH="$HOME/scripts:$PATH"
 # Adding location of flatpak binaries so that dmenu may find them
 export PATH="$HOME/.local/share/flatpak/exports/bin:$PATH"
 
-# Pycharm executable
-export PATH="$PATH:/home/jon/.local/share/JetBrains/Toolbox/scripts"
+# Provide lf theming when launched via shortcut
+export LS_COLORS="$(vivid generate rose-pine-moon)"

@@ -1,10 +1,10 @@
 "Options - complete list at https://neovim.io/doc/user/options.html
 
-set autoindent  "Copy indent from current line when starting a new line
+set autoindent  "Copy indent from current line when creating a new line
 set clipboard+=unnamedplus       "Allow use of system clipboard
 set cursorcolumn        "Highlight column in which cursor is located
 set cursorline  "Highlight line (or row) on which cursor is located
-set expandtab   "Substitute Tab for a number of spaces; set via 'tabstop' parameter
+set expandtab   "Replaces tab character with number of spaces set by 'tabstop' parameter
 set hlsearch    "Highlight matches of last used search pattern
 set incsearch   "Display matches for search as you type
 set ignorecase  "Search case insensitively
@@ -55,6 +55,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'tomasiser/vim-code-dark' " called codedark
 Plug 'doums/darcula'
 Plug 'jaredgorski/spacecamp'
+Plug 'rose-pine/neovim'
 
 Plug 'preservim/nerdtree'
 
@@ -85,7 +86,7 @@ call plug#end()
 
 
 " Set text color scheme from those installed above
-colorscheme codedark
+colorscheme rose-pine-moon
 
 "Enable background transparency
 highlight Normal guibg=none
@@ -118,7 +119,7 @@ map <Leader>o :NERDTreeToggle<CR>
 "autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 " Remap ESC to ii
-" (now unneeded after remapping keyboard CAPS to ESC by editting /etc/default/keyboard)
+" Unneeded after remapping keyboard CAPS LOCK to ESC by editting /etc/default/keyboard)
 ":imap ii <Esc>
 
 
@@ -174,6 +175,7 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
+<<<<<<< HEAD:init.vim
 " Mason setup - use a lua block
 lua << EOF
 
@@ -182,3 +184,12 @@ require("mason-lspconfig").setup { ensure_installed = { "pyright", }, }
 require 'lspconfig'.pyright.setup {}
 
 EOF
+=======
+
+" Commenting
+"insert and remove comments in visual and normal mode
+vmap ,ic :s/^/#/g<CR>:let @/ = ""<CR>
+map  ,ic :s/^/#/g<CR>:let @/ = ""<CR>
+vmap ,rc :s/^#//g<CR>:let @/ = ""<CR>
+map  ,rc :s/^#//g<CR>:let @/ = ""<CR>
+>>>>>>> 99f61b2543ed895b4fae97a9c149b31b3202fca7:nvim/init.vim
