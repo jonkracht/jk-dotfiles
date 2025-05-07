@@ -25,3 +25,4 @@ export PATH="/home/jon/.local/projectMSDL:$PATH"
 # Use starship prompt
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
+eval "$(pip completion --bash)"  # enable pip command completions

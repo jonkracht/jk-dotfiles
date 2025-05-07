@@ -35,7 +35,7 @@ export fileManager="nautilus"
 #export wallpaper="/home/jon/repos/distrotube-wallpapers/0271.jpg"
 #export wallpaper="/usr/share/backgrounds/pop/nick-nazzaro-jungle-green.png"
 #export wallpaper="/usr/share/backgrounds/pop/nick-nazzaro-space-blue.png"
-export wallpaper="/home/jon/Pictures/wallpapers/roy-tanck-wallpapers/wallpaper (11).png"
+export wallpaper="/home/jon/Pictures/wallpapers/roy-tanck-wallpapers/wallpaper (14).png"
 
 
 #export lockScreenCmd="i3lock --image=/mnt/1-tb-hd/art/paul-klee/Theater-Mountain-Construction-cropped.png --tiling --show-failed-attempts"

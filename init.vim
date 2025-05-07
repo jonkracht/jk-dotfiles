@@ -17,8 +17,8 @@ set scrolloff=8 "Border line at top/bottom of screen when scrolling up/down
 set shiftwidth=4
 set showmatch   "Highlight matching bracket
 set softtabstop=4
-set spelllang=en_us
-set spell       " Enable spell check
+"set spelllang=en_us
+"set spell       " Enable spell check
 set splitbelow splitright       "Define behavior of new splits
 set tabstop=4
 set termguicolors
@@ -69,6 +69,16 @@ Plug 'junegunn/goyo.vim' "Removes Line numbers for focusing
 "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "Plug 'junegunn/fzf.vim' "Fuzzy find plugin
 
+"LSP config
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+
+
+
+
+Plug 'ThePrimeagen/vim-be-good'
+
 call plug#end()
 
 
@@ -104,8 +114,8 @@ map <Leader>o :NERDTreeToggle<CR>
 
 
 " Start NERDTree when Vim is started with no file arguments
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 " Remap ESC to ii
 " (now unneeded after remapping keyboard CAPS to ESC by editting /etc/default/keyboard)
@@ -163,3 +173,12 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Mason setup - use a lua block
+lua << EOF
+
+require("mason").setup {}
+require("mason-lspconfig").setup { ensure_installed = { "pyright", }, }
+require 'lspconfig'.pyright.setup {}
+
+EOF

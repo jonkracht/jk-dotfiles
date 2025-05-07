@@ -580,9 +580,12 @@ globalkeys = mytable.join(
     awful.key({ modkey, "Shift" }, "Return", function () awful.spawn("nautilus") end,
                 {description = "Graphical file manager", group = "launcher"}),
 
-    awful.key({ modkey }, "a", function () awful.spawn(fileManager) end,
+    awful.key({ modkey }, "l", function () awful.spawn("kitty lf") end,
                 {description = "Graphical file manager", group = "launcher"}),
 
+    awful.key({ modkey }, "a", function () awful.spawn(fileManager) end,
+                {description = "Graphical file manager", group = "launcher"}),
+    
     awful.key({ modkey, "Shift" }, "p", function () awful.spawn.with_shell("jk-power.sh") end,
                 {description = "Power menu", group = "launcher"}),
 
