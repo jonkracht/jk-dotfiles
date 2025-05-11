@@ -36,16 +36,17 @@ map X !$f
 
 # Opening files
 
-## Using mimeopen
+## Using exclusively mimeopen
 #map o &mimeopen $f
 #map O $mimeopen --ask $f
 
 ## Using mimetype to determine appropriate program
 cmd open &{{
     case $(file --mime-type -Lb $f) in
-        text/*) lf -remote "send $id \$$EDITOR \$fx";;
+        #text/*) lf -remote "send $id \$$EDITOR \$fx";;
+        text/*) lf -remote "send $id \$nvim \$fx";;
         application/pdf) zathura "$f";;
-        image/*) eog "$f";;
+        image/*) xdg-open "$f";;
         video/*) vlc "$f";;
         *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
@@ -104,12 +105,6 @@ map mp editPermissions
 
 
 
-<<<<<<< HEAD
-## Trash/deletion
-=======
-# Deletion/trash
->>>>>>> 99f61b2543ed895b4fae97a9c149b31b3202fca7
-
 # make sure trash folder exists
 # %mkdir -p ~/.trash
 
@@ -127,11 +122,8 @@ map mp editPermissions
 #}}
 #
 
-<<<<<<< HEAD
 
-=======
 ## Use trash-cli; default location is ~/.local/share/Trash/files
->>>>>>> 99f61b2543ed895b4fae97a9c149b31b3202fca7
 cmd trash %{{
     printf "Trash '%s'? [y/n] " "$f"
     read -r ans
@@ -141,7 +133,6 @@ cmd trash %{{
         echo "aborting"
     fi
 }}
-<<<<<<< HEAD
 # use '<delete>' key for either 'trash' or 'delete' command
  map <delete> trash
 # map <delete> delete
@@ -150,7 +141,6 @@ cmd trash %{{
 # Extraction
 
 # extract the current file with the right command
-=======
 
 # use '<delete>' key for either 'trash' or 'delete' command
 map <delete> trash
@@ -160,7 +150,6 @@ map <delete> trash
 
 # Extraction
 
->>>>>>> 99f61b2543ed895b4fae97a9c149b31b3202fca7
 # (xkcd link: https://xkcd.com/1168/)
 cmd extract ${{
     set -f
