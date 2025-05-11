@@ -35,6 +35,8 @@ sg      g       # SETGID
 ex             # EXEC
 fi             # FILE
 
+*.txt   🗎
+
 # file extensions (vim-devicons)
 *.styl          
 *.sass          
@@ -63,6 +65,7 @@ fi             # FILE
 *.pyc           
 *.pyo           
 *.pyd           
+*.ipynb         
 *.coffee        
 *.mustache      
 *.hbs           
@@ -304,25 +307,25 @@ Vagrantfile             
 *.svgz  
 *.mng   
 *.pcx   
-*.mov   
+*.mov   
 *.mpg   
 *.mpeg  
 *.m2v   
-*.mkv   
+*.mkv   
 *.webm  
 *.ogm   
-*.mp4   
+*.mp4   
 *.m4v   
 *.mp4v  
 *.vob   
 *.qt    
 *.nuv   
-*.wmv   
+*.wmv   
 *.asf   
 *.rm    
 *.rmvb  
 *.flc   
-*.avi   
+*.avi   
 *.fli   
 *.flv   
 *.gl    
@@ -338,16 +341,16 @@ Vagrantfile             
 # audio formats (extensions from dircolors defaults)
 *.aac   
 *.au    
-*.flac  
-*.m4a   
+*.flac  󰎅
+*.m4a   󰎅
 *.mid   
 *.midi  
 *.mka   
-*.mp3   
+*.mp3   󰎅
 *.mpc   
-*.ogg   
+*.ogg   󰎅
 *.ra    
-*.wav   
+*.wav   󰎅
 *.oga   
 *.opus  
 *.spx   
