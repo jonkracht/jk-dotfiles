@@ -5,33 +5,44 @@
 # Also arch wiki https://wiki.archlinux.org/title/zathura
 
 
-# Font  (try pulling from environment variable)
+# Font
 #set font "CaskaydiaCove Nerd Font 14"
-set font "Arial 10" # 
-# TODO use Ubuntu system font
+#set font "Arial 10"
+set font "JetBrainsMono 18"
+
+# TODO: pull from environment variable
 
 
 
 
+# Highlighting search results
+
+## Hex implementation
+#set highlight-color "#FFFDD0"
+#set highlight-active-color "#FFEA00"
+
+## RGBA implementation
+set highlight-color "rgba(255,253,208,0.5)"
+set highlight-active-color "rgba(255,234,0,0.5)"
+
+#set highlight-transparency 0.50
+# deprecated after zathura 0.5.5 https://pwmt.org/projects/zathura/changelog/0.5.5/index.html
+# now handled in the alpha component of the rgba code
 
 
-# Highlighting (such as search results)
-set highlight-color "#FFFDD0"
-set highlight-active-color "#FFEA00"
 
-set highlight-transparency 0.50
-
-# settings
+# Settings
 #set window-height 1024
 #set window-width 768
 
 set adjust-open "best-fit" # options:  best-fit, width
 
 # Database backend
-set database plain # options:  sqlite, plain
+set database sqlite # options:  sqlite, plain
+# plain database is deprecated
 
-# Options:  c is commandline, s is statusbar, h/v for horizontal/vertical scrollbars; none to disable all
 set guioptions none
+# options:  c is commandline, s is statusbar, h/v for horizontal/vertical scrollbars; none to disable all
 
 
 
@@ -51,12 +62,18 @@ set statusbar-basename true
 set inputbar-bg "#000000"
 set inputbar-fg "#FFFFFF"
 
-
 set dbus-service false
 
 
-# Page numbering
+
+# TODO: Disable window title -- looks ugly
+
+# Page numbering in titlebar
 set window-title-page true
+
+#set window-home-tilde true
+set window-title-home-tilde true
+
 
 
 # key bindings
@@ -69,12 +86,6 @@ map - zoom out
 map <C-q> quit
 
 
-
 #map b adjust window best-fit
-#
-
-#set window-home-tilde true
-set window-title-home-tilde true
-
 # Clipboard
 set selection-clipboard clipboard
