@@ -39,7 +39,7 @@ video/*)
     
     # MTN IMPLEMENTATION
     thumbnail="$TEMPDIR/thumbnail.jpg"
-    mtn "$filename" -c 3 -r 3 -O "$TEMPDIR" -x thumbnail -o .jpg -g 20 -F 000000:30 -f /usr/local/share/fonts/CaskaydiaCoveNerdFont/CaskaydiaCoveNerdFontMono-Regular.ttf --shadow=5 -w 2048
+    mtn "$filename" -c 3 -r 3 -O "$TEMPDIR" -x thumbnail -o .jpg -g 20 -f /usr/share/fonts/JetBrainsMono/JetBrainsMonoNerdFont-Regular.ttf -F 000000:30 --shadow=5 -w 2048
     preview "$thumbnail"
 	;;
 font/*)
