@@ -87,5 +87,10 @@ map <C-q> quit
 
 
 #map b adjust window best-fit
+
 # Clipboard
 set selection-clipboard clipboard
+
+# Allow zathura to open hyperlinks in a browser
+# To follow link, press `f` and then input overlayed number of link to open in a browser
+set sandbox none
