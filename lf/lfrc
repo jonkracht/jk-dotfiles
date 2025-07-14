@@ -23,10 +23,10 @@ set scrolloff 10
 # Use the `dim` attribute instead of underline for the cursor in the preview pane
 #set cursorpreviewfmt "\033[7;2m"
 
-# use enter for shell commands
-map <enter> shell
+# input shell commands
+#map <enter> shell
 
-# show the result of execution of previous commands
+# show result previous command
 map ` !true
 
 # execute current file (must be executable)
@@ -36,11 +36,7 @@ map X !$f
 
 # Opening files
 
-## Using exclusively mimeopen
-#map o &mimeopen $f
-#map O $mimeopen --ask $f
-
-## Using mimetype to determine appropriate program
+## Use mimetype to determine appropriate opener
 cmd open &{{
     case $(file --mime-type -Lb $f) in
         #text/*) lf -remote "send $id \$$EDITOR \$fx";;
@@ -65,35 +61,35 @@ map m
 
 #map md :push %mkdir<space>
 
-cmd makeDirectory %{{
-    echo " Input new directory name: "
+cmd make_directory %{{
+    echo " New directory name: "
     read ans
     mkdir $ans
 }}
-map md makeDirectory
+map md make_directory
 
 
 # Make new file
 
 # map mf :push %touch<space>
 
-cmd makeFile %{{
-    printf " Input new file name: "
+cmd make_file %{{
+    echo " New file name: "
     read ans
     touch $ans
 }}
-map mf makeFile
+map mf make_file
 
 
 # Modify file permissions.  Must reload lf to see changes.  Bug.
-cmd editPermissions ${{
-    echo " Input mode bits: "
+cmd modify_permissions %{{
+    echo " New mode bits ({owner}{group}{others} where {r,w,e} = {4, 2, 1}): "
     read ans
 
     chmod $ans $fx
 }}
 
-map mp editPermissions
+map mp modify_permissions
 
 
 # Rename 
@@ -105,6 +101,8 @@ map mp editPermissions
 
 
 
+# Trash
+
 # make sure trash folder exists
 # %mkdir -p ~/.trash
 
@@ -113,7 +111,7 @@ map mp editPermissions
 #cmd trash %set -f; mv $fx ~/.trash
 
 # define a custom 'delete' command
-#cmd delete ${{
+#cmd trash ${{
 #    set -f
 #    printf "$fx\n"
 #    printf "delete?[y/n]"
@@ -133,24 +131,16 @@ cmd trash %{{
         echo "aborting"
     fi
 }}
+
 # use '<delete>' key for either 'trash' or 'delete' command
  map <delete> trash
-# map <delete> delete
 
 
-# Extraction
-
-# extract the current file with the right command
-
-# use '<delete>' key for either 'trash' or 'delete' command
-map <delete> trash
-# map <delete> delete
 
 
 
 # Extraction
 
-# (xkcd link: https://xkcd.com/1168/)
 cmd extract ${{
     set -f
     case $f in
@@ -165,9 +155,12 @@ cmd extract ${{
 
 map ex extract
 
+
+
+
+
 # Compression
 
-## Using tar and gunzip
 cmd tar ${{
     set -f
     mkdir $1
@@ -200,7 +193,7 @@ set cleaner ~/.config/lf/lf_kitty_clean
 # Options
 set dirfirst true # display folders before other files
 set dirpreviews true
-set drawbox # column borders
+set drawbox # draw column borders
 set hidden true # show hidden files
 set icons true # show icons
 set incfilter true # apply filter after each character
