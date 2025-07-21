@@ -13,7 +13,7 @@ export FONT="RobotoMonoNerdFont-Regular"
 
 #export Dmenu_Base_Cmd="dmenu_run -i -fn '$FONT'"
 
-export dmenu_flags="-i -fn '$FONT'"
+export dmenu_flags="-i -fn $FONT"
 #export dmenu_flags="-i -fn Courier"
 
 export fileManager="nautilus"
