@@ -4,18 +4,20 @@
     "spacing": 0,
     "height": 50,
     "modules-left": [
-        "custom/logo",
+        //"custom/logo",
         "hyprland/workspaces"
     ],
     "modules-center": [
+        "clock"
     ],
     "modules-right": [
         "tray",
 	//"custom/kernel",
-	"cpu",
-        "memory",
-	"custom/diskfree",
-        "clock",
+	//"cpu",
+        //"memory",
+        //"network",
+	//"custom/diskfree",
+        //"clock",
         "wireplumber",
         "custom/power"
     ],
@@ -30,30 +32,30 @@
     "hyprland/workspaces": {
         "on-click": "activate",
         "disable-scroll": true,
-        "all-outputs": true,
+        "all-outputs": false,
         "warp-on-scroll": false,
         "format": "{name}: {icon}",
         "format-icons": {
             "default": "",
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
+            //"1": "",
+            //"2": "",
+            //"3": "",
+            //"4": "",
+            //"5": "",
             //"active": "󱓻",
             //"urgent": "󱓻"
         },
-        "persistent_workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": [],
-            "6": [],
-            "7": [],
-            "8": [],
-            "9": []
-        }
+        //"persistent_workspaces": {
+            //"1": [],
+            //"2": [],
+            //"3": [],
+            //"4": [],
+            //"5": [],
+            //"6": [],
+            //"7": [],
+            //"8": [],
+            //"9": []
+        //}
     },
     "cpu": {
         "format": "⧯ Cpu: {usage}%" ,
@@ -69,8 +71,8 @@
     },
     "clock": {
         "tooltip-format": "{calendar}",
-        "format-alt": "  {:%a, %b %d %Y}",
-        "format": "⏱  {:%a, %b %d - %H:%M}"
+        "format": "⏱  {:%a, %b %d    %H:%M}"
+        //"format-alt": "  {:%a, %b %d %Y}",
     },
     "network": {
         "format-wifi" : "{icon}",
@@ -100,9 +102,11 @@
         "scroll-step": 1
     },
     "custom/logo": {
-        "format": "  ",
+        //"format": "  ",
+        "format": "\uf30a",
         "tooltip": false,
-        "on-click": "~/.config/rofi/launchers/misc/launcher.sh &"
+        //"on-click": "~/.config/rofi/launchers/misc/launcher.sh &"
+        "on-click": "wofi &"
     },
     "battery": {
         "format": "{capacity}% {icon}",
