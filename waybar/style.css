@@ -75,7 +75,8 @@ window#waybar.hidden {
 
 #custom-power {
   margin-right: 6px;
-  background-color: #E28913;
+  background-color: #1e1e2e;
+  color: #cdd6f4;
 
 }
 
@@ -122,8 +123,8 @@ window#waybar.hidden {
 }
 
 #wireplumber {
-  background-color: #E28913;
-
+  background-color: #1e1e2e;
+  color: #cdd6f4;
 }
 
 #network {
@@ -132,7 +133,8 @@ window#waybar.hidden {
 }
 
 #clock {
-  background-color: #cdd6f4;
+  background-color: #1e1e2e;
+  color: #cdd6f4;
 }
 
 tooltip {
