@@ -35,3 +35,7 @@ export EZA_ICON_SPACING=2
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 eval "$(pip completion --bash)"  # enable pip command completions
+
+# Virtualenvwrapper
+#https://virtualenvwrapper.readthedocs.io/en/latest/
+source /usr/bin/virtualenvwrapper.sh
