@@ -42,7 +42,7 @@ cmd open &{{
         #text/*) lf -remote "send $id \$$EDITOR \$fx";;
         text/*) lf -remote "send $id \$nvim \$fx";;
         application/pdf) zathura "$f";;
-        image/*) xdg-open "$f";;
+        image/*) loupe "$f";;
         video/*) vlc "$f";;
         *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
