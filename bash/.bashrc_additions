@@ -38,4 +38,4 @@ eval "$(pip completion --bash)"  # enable pip command completions
 
 # Virtualenvwrapper
 #https://virtualenvwrapper.readthedocs.io/en/latest/
-source /usr/bin/virtualenvwrapper.sh
+source virtualenvwrapper.sh
