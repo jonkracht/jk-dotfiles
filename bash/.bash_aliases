@@ -19,8 +19,10 @@ alias ..='cd ..'
 ## Promote use of trash-cli rather than rm command.  May still invoke rm via `\rm file-to-delete`
 alias rm='echo "This is not the command you are looking for."; false'
 
-## Launchers
+## Automatically include interactive flag to 'mv' to avoid overwriting
+alias mv='mv -i'
 
+## Launchers
 alias v='nvim'
 alias lo='libreoffice'
 alias top='btop'
@@ -30,3 +32,6 @@ alias fm='2>/dev/null 1>/dev/null nautilus . &'
 #alias fm='2>/dev/null 1>/dev/null pcmanfm . &'
 #alias fm='2>/dev/null 1>/dev/null spacefm . &'
 #alias fm='2>/dev/null 1>/dev/null thunar . &'
+
+# Git
+alias gs='git status'
