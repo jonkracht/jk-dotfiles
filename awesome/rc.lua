@@ -676,7 +676,7 @@ globalkeys = mytable.join(
 
 	-- rofi
 	awful.key({ modkey }, "z", function()
-		os.execute(string.format("rofi -show drun"))
+		os.execute(string.format("rofi -show combi -combi-modi 'run,drun' -modi combi"))
 	end, { description = "rofi", group = "launcher" }),
 
 	--[[awful.key({ modkey }, "z", function ()
