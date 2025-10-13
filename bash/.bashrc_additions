@@ -42,3 +42,4 @@ source virtualenvwrapper.sh
 
 # Use vim-style motions
 set -o vi
+bind -m vi-insert "\C-l":clear-screen  # preserve CTRL + L screen clearing
