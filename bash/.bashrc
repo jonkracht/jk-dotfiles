@@ -117,11 +117,6 @@ if ! shopt -oq posix; then
 fi
 
 
-#export PATH="/home/jon/.pyenv/bin:$PATH"
-#eval "$(pyenv init -)"
-#eval "$(pyenv virtualenv-init -)"
-
-
 
 # Run neofetch (to display system info) when terminal first opens
 #neofetch
