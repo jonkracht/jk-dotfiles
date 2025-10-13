@@ -28,8 +28,8 @@ image/*)
     preview "$filename"
     ;;
 application/pdf)
-	thumbnail="$TEMPDIR/thumbnail.png"
-	gs -o "$thumbnail" -sDEVICE=pngalpha -dLastPage=1 "$filename" >/dev/null
+	thumbnail="$TEMPDIR/thumbnail.jpg"
+	gs -o "$thumbnail" -sDEVICE=jpeg -dLastPage=1 -dNOTRANSPARENCY "$filename" >/dev/null
     preview "$thumbnail"
 	;;
 video/*)
