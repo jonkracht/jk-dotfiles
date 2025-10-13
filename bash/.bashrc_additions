@@ -41,4 +41,4 @@ eval "$(pip completion --bash)"  # enable pip command completions
 source virtualenvwrapper.sh
 
 # Use vim-style motions
-#set -o vi
+set -o vi
