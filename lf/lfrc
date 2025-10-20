@@ -40,6 +40,7 @@ map X !$f
 cmd open &{{
     case $(file --mime-type -Lb $f) in
         #text/*) lf -remote "send $id \$$EDITOR \$fx";;
+        text/csv) libreoffice "$f";;
         text/*) lf -remote "send $id \$nvim \$fx";;
         application/pdf) zathura "$f";;
         image/*) loupe "$f";;
