@@ -35,3 +35,4 @@ alias fm='2>/dev/null 1>/dev/null nautilus . &'
 
 # Git
 alias gs='git status'
+alias gd='git diff'
