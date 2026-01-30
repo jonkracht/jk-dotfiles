@@ -13,7 +13,7 @@ use = "sunset"
 
 # : Manager {{{
 
-[mgr]
+[manager]
 cwd = { fg = "cyan" }
 
 # Hovered
