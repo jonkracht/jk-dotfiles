@@ -8,10 +8,10 @@
 }
 
 window#waybar {
-  background-color: #282c34;
+  /* background-color: #282c34; */
+  background-color: rgba(40, 40, 40, 0.8);
   transition-property: background-color;
   transition-duration: 0.5s;
-  /*opacity: 0.8;*/
 }
 
 window#waybar.hidden {
