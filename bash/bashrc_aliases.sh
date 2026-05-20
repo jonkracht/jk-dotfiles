@@ -7,7 +7,7 @@ alias sudo='sudo '
 ## Listing files:  ls, exa, or eza
 #alias l='ls -halF --color=auto'
 #alias l='exa --long --all --icons --color=always --group-directories-first'
-alias l="eza --all --long --icons='always'"
+alias l="eza --all --long --icons='always' --group-directories-first"
 
 # Prints number of files in directory
 alias n='ls | wc -l'
