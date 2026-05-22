@@ -1,6 +1,7 @@
 # JK additions
 
 alias v='nvim'
+alias top='btop'
 
 alias l="eza --all --long --icons='always' --group-directories-first"
 alias gs="git status"
