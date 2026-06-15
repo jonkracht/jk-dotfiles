@@ -1,96 +1,56 @@
 # zathurarc
-#
-# Documentation at https://pwmt.org/projects/zathura/documentation/
-# Also man zathurarc
-# Also arch wiki https://wiki.archlinux.org/title/zathura
+
+## Documentation:
+# https://pwmt.org/projects/zathura/documentation/
+# `man zathurarc`
+# Arch wiki:  https://wiki.archlinux.org/title/zathura
 
 
-# Font
-#set font "CaskaydiaCove Nerd Font 14"
-#set font "Arial 10"
-set font "JetBrainsMono 18"
-
-# TODO: pull from environment variable
+## Font
+set font "NotoSansMono 14"
+# TODO: pull from environment variable for cross-application theming
 
 
-
-
-# Highlighting search results
-
-## Hex implementation
-#set highlight-color "#FFFDD0"
-#set highlight-active-color "#FFEA00"
-
-## RGBA implementation
-set highlight-color "rgba(255,253,208,0.5)"
-set highlight-active-color "rgba(255,234,0,0.5)"
-
-#set highlight-transparency 0.50
-# deprecated after zathura 0.5.5 https://pwmt.org/projects/zathura/changelog/0.5.5/index.html
-# now handled in the alpha component of the rgba code
-
-
-
-# Settings
 #set window-height 1024
 #set window-width 768
 
-set adjust-open "best-fit" # options:  best-fit, width
+set adjust-open "width" # options: best-fit, width
 
 # Database backend
-set database sqlite # options:  sqlite, plain
-# plain database is deprecated
+# Plain database is deprecated; set as null to discard bookmarks and input history
+set database null # options:  sqlite, plain, null
 
+## GUI Options:  set which GUI elements are shown
+# `c`: commandline, `s` is statusbar, `h`,`v` for horizontal/vertical scrollbars; none to disable all
 set guioptions none
-# options:  c is commandline, s is statusbar, h/v for horizontal/vertical scrollbars; none to disable all
 
+# Padding around statusbar
+set statusbar-v-padding 00
+set statusbar-h-padding 00
 
-
-# Status bar
-#set statusbar-bg "#FFFFFF"
-set statusbar-bg "#CBC3E3" # light purple
-
-set statusbar-fg "#000000"
-
-set statusbar-v-padding 20
-set statusbar-h-padding 50
-
-# Display file name rather than full path
+# Display only file name rather than full path
 set statusbar-basename true
 
-# Input bar
-set inputbar-bg "#000000"
-set inputbar-fg "#FFFFFF"
+# Enable to allow SyncTex forward synchronization
+set dbus-service true
 
-set dbus-service false
-
-
-
-# TODO: Disable window title -- looks ugly
+#TODO: Disable window title -- looks ugly
 
 # Page numbering in titlebar
 set window-title-page true
 
-#set window-home-tilde true
+# Represent home directory by tilde in label
 set window-title-home-tilde true
 
-
-
-# key bindings
-map <PageUp> navigate previous
-map <PageDown> navigate next
-
-map + zoom in
-map - zoom out
-
-map <C-q> quit
-
-
-#map b adjust window best-fit
 
 # Clipboard
 set selection-clipboard clipboard
 
 # Allow zathura to open hyperlinks in a browser
 # To follow link, press `f` and then input overlayed number of link to open in a browser
-set sandbox none
+#set sandbox none
+
+
+# Load modularized config files
+include zathura-binds
+include zathura-colors

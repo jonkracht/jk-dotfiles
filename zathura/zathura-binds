@@ -1,0 +1,29 @@
+# Zathura key bindings
+
+## Mappings
+map + zoom in
+map - zoom out
+
+# Toggle between light and dark mode
+map i recolor
+
+map <C-q> quit
+
+#map b adjust window best-fit
+
+
+
+## Unmappings
+
+### Encourage vim-style motions
+unmap <PageUp>
+unmap <PageDown>
+unmap <Home>
+unmap <End>
+
+unmap = # causes unintention zoom reset
+
+unmap r # mostly unused
+
+unmap <C-r>  # originaly bound to color inversion
+map <C-r> rotate

@@ -1,0 +1,28 @@
+# Coloring in zathura
+
+## Search result highlight
+### Can use either hex code or rgba surround by double quotes
+
+set highlight-color "rgba(69, 133, 256, 0.3)" #bright blue
+set highlight-active-color "rgba(69, 133, 256, 0.8)"
+
+
+## Status bar (at the bottom)
+set statusbar-bg "#282828"
+set statusbar-fg "#ebdbb2"
+
+
+## Input bar (for example when searching)
+set inputbar-bg "#282828"
+set inputbar-fg "#ebdbb2"
+
+
+## Define colors to use in "recolor"
+set recolor-lightcolor "#282828"
+set recolor-darkcolor "#ebdbb2"
+
+
+set recolor-keephue "true"
+
+# Sets "recolor" palette as default
+set recolor true
